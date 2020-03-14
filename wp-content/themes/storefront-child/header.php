@@ -47,7 +47,14 @@
 		 */
         storefront_primary_navigation_wrapper();
 		?>
-		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
+        <a class="header__logo" href="/">
+            <img class="header__logo__img" src="/wp-content/themes/storefront-child/assets/images/custom/logo@2x.png">
+            <div class="header__logo__title">
+                <div>ФОТОСТУДИЯ</div> <div>ФОКУС</div>
+            </div>
+        </a>
+
+		<nav id="site-navigation" class="main-navigation header__menu" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
         <?php
         wp_nav_menu(
             array(

@@ -675,7 +675,7 @@ if ( ! function_exists( 'storefront_primary_navigation_wrapper' ) ) {
 	 * The primary navigation wrapper
 	 */
 	function storefront_primary_navigation_wrapper() {
-		echo '<div class="storefront-primary-navigation"><div class="col-full">';
+		echo '<div class="storefront-primary-navigation"><div id="header__cont" class="col-full">';
 	}
 }
 
