@@ -1,0 +1,30 @@
+.prices__list {
+  background-color: #FFF;
+  border-radius: 5px;
+  display: block;
+  overflow: hidden;
+  margin-top: 50px;
+}
+.prices__list tbody,
+.prices__list tr {
+  width: 100%;
+  display: block;
+}
+.prices__list tr {
+  cursor: pointer;
+  padding: 10px;
+}
+.prices__list tr:hover {
+  background-color: #EEE;
+}
+.prices__list td {
+  width: 50%;
+  display: inline-block;
+}
+.prices__list td:first-child {
+
+}
+.prices__list td:last-child {
+  text-align: right;
+  font-weight: 800;
+}

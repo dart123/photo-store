@@ -1,0 +1,32 @@
+.profile__buttons {
+  display: flex;
+}
+.profile__buttons > button {
+  width: 250px;
+}
+.profile__buttons > button:first-child {
+  margin-right: 20px !important;
+}
+
+.profile__history__table {
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+  margin-bottom: 30px;
+}
+ .profile__history__table__cont {
+   overflow: auto
+ }
+.profile__history__table__cont img {
+  width: 80px;
+  height: 80px;
+}
+
+.profile__history__table__item > td {
+  color: #2458A4 !important;
+  font-weight: 800;
+}
+.profile__history__table__item > td:first-child {
+  color: #68686A !important;
+}

@@ -1,0 +1,86 @@
+.login__content {
+  display: flex;
+}
+.login__top {
+  height: 150px;
+  margin-bottom: 30px;
+}
+.login__logo {
+  width: 120px;
+  height: 150px;
+  float: left;
+}
+.login__title {
+  color: #FFF;
+  font-weight: 800;
+  margin-left: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+.login__title > *:first-child {
+  font-size: 37px;
+}
+.login__title > *:last-child {
+  font-size: 73px;
+}
+.login__cont {
+  margin: auto;
+  width: 450px;
+  position: relative;
+}
+.login__form {
+  background-color: #FFF;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+}
+.login__form__switch {
+  height: 50px;
+  display: flex;
+  margin-bottom: 10px;
+}
+.login__form__switch__item {
+  width: 50%;
+  text-align: center;
+  font-weight: 800;
+  color: #C9BBC8;
+  cursor: pointer;
+  line-height: 50px;
+}
+.login__form__switch__item.active {
+  color: #2458A4;
+}
+.login__form__message.show {
+  display: block;
+}
+.login__form__message {
+  background-color: #DDE7EE;
+  min-height: 60px;
+  position: absolute;
+  top: calc(100% - 15px);
+  width: calc(100% - 20px);
+  border-radius: 0 0 5px 5px;
+  padding: 15px 30px 15px 55px;
+  display: none;
+}
+.login__form__message.error{
+  color: #AE0A0A;
+}
+.login__form__message.error:before,
+.login__form__message.ok:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+.login__form__message.error:before {
+  background-image: url('../../images/custom/message-error.svg');
+}
+.login__form__message.ok:before {
+  background-image: url('../../images/custom/message-ok.svg');
+}

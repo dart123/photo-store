@@ -1,0 +1,7 @@
+.docs__item {
+  height: 380px;
+}
+.docs__item img {
+  width: 100%;
+  max-height: 100%;
+}

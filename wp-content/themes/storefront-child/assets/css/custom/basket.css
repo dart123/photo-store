@@ -1,0 +1,65 @@
+.basket__table {
+  background-color: rgba(255,255,255,0.9);
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.44);
+  border-radius: 5px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.basket__table__cont {
+  overflow-x: auto;
+}
+.basket__table__cont > table {
+  text-align: center;
+}
+.basket__table td {
+  white-space: nowrap;
+}
+.basket__table__item td,
+.basket__table__item td a {
+  color: #2458A4;
+  font-weight: 800;
+}
+.basket__table__item img {
+  width: 80px;
+  height: 80px;
+}
+.basket__table__item__delete {
+  background-image: url('../../images/custom/delete.svg');
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.basket__total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.basket__total > *:first-child {
+  color: #68686A;
+  font-size: 22px;
+  font-weight: 800;
+}
+.basket__total > *:last-child {
+  font-size: 25px;
+  font-weight: 800;
+  color: #2458A4;
+}
+
+.basket__button {
+  max-width: 250px;
+  float: right;
+}
+
+@media screen and (max-width: 1000px) {
+  .basket__button {
+    width: 100%;
+    max-width: 100%;
+    float: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+}

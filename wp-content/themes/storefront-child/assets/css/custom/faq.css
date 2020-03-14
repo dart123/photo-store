@@ -1,0 +1,39 @@
+.faq__list {
+
+}
+.faq__list__item__cont {
+  cursor: pointer;
+}
+.faq__list__item {
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 5px;
+  position: relative;
+  margin: 20px 0;
+}
+.faq__list__item__title {
+  margin: 0;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 20px;
+  width: calc(100% - 20px);
+}
+.faq__list__item__more {
+  float: right;
+  width: 20px;
+  height: 20px;
+  background-image: url('../../images/custom/more.svg');
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.faq__list__item__text {
+  margin-top: 50px;
+  display: none;
+}
+
+.faq__list__item.opened .faq__list__item__more {
+  transform: rotate(180deg);
+}
+.faq__list__item.opened .faq__list__item__text {
+  display: block;
+}

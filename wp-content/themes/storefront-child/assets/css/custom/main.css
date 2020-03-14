@@ -1,0 +1,50 @@
+.main__items {
+  padding-top: 40px;
+}
+.main__item {
+  background-color: #FFF;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+.main__item__photo {
+  width: 100%;
+  height: 230px;
+}
+.main__item__title {
+  font-size: 22px;
+  margin: 10px 0;
+}
+.main__item__cont {
+  height: 40px;
+  line-height: 40px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.main__item__price {
+  color: #2458A4;
+  font-size: 25px;
+  font-weight: 800;
+}
+.main__item__button {
+  background-color: #2458A4;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #FFF;
+  border-radius: 5px;
+}
+.main__item__button.done {
+  background-color: #2C9408;
+}
+.main__item__button.done:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 10px;
+  background-image: url('../../images/custom/ok.svg');
+}
