@@ -327,6 +327,10 @@ if ( ! class_exists( 'Storefront' ) ) :
             wp_enqueue_style( 'custom-profile-style', get_template_directory_uri() . '/assets/css/custom/profile.css', '', $storefront_version );
             wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/assets/css/custom/style.css', '', $storefront_version );
 			/***************************/
+            wp_enqueue_script( 'jquery' );
+            //Custom scripts
+            wp_enqueue_script( 'custom-script-catalog', get_template_directory_uri() . '/assets/js/custom/catalog.js', array('jquery'), $storefront_version );
+            /***************************/
 
 			wp_enqueue_style( 'storefront-style', get_template_directory_uri() . '/style.css', '', $storefront_version );
 			wp_style_add_data( 'storefront-style', 'rtl', 'replace' );

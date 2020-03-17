@@ -899,3 +899,47 @@ if ( ! function_exists( 'storefront_woocommerce_brands_single' ) ) {
 		<?php
 	}
 }
+
+function my_custom_cart_button_text( $button_text, $product ) {
+
+    if ( $product->is_type( 'variable' ) )
+        $button_text = 'В корзину';
+
+    return $button_text;
+}
+
+function available_attributes()
+{
+    global $product;
+    //$formats = $product->get_attribute('format');
+    //$formats = explode(", ", $formats);
+    if ( ! $product -> is_type( 'variable' ))
+        return false;
+
+    $id = $product->get_id();
+    $variations = $product->get_available_variations();
+
+    apply_filters('woocommerce_product_add_to_cart_text', '', $product);
+    //var_dump($product-> get_variation_attributes());
+//var_dump($product->add_to_cart_text());
+    if (isset($variations) && !empty($variations))
+    {
+        //var_dump($variations);
+        //var_dump($product);
+        echo '<div class="custom-select">
+                <div class="custom-select__label">Формат</div>
+                    <div class="custom-select__select">
+                        <select class="attribute_select" id="' . $id . '" style="font-size: 1.2em">';
+//&quantity=3
+        foreach ($variations as $variation)
+        {
+            if ($variation['is_purchasable'] && $variation['is_in_stock'])
+                foreach ($variation['attributes'] as $attribute_name => $attribute_value)
+                {
+                    echo '<option class="' . $attribute_name . '" value="'. $variation['variation_id'] .'">' . $attribute_value . '</option>';
+                }
+        }
+
+        echo '</select></div></div>';
+    }
+}

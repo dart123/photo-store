@@ -74,9 +74,6 @@ spl_autoload_register(function($class) {
     if (array_key_exists($class, $classes) && file_exists($path.$classes[$class])) {
         require $path.$classes[$class];
     }
-
-    // require Action Scheduler
-    include_once "includes/vendor/action-scheduler/action-scheduler.php";
 });
 
 /**
@@ -90,7 +87,7 @@ function mailchimp_environment_variables() {
     return (object) array(
         'repo' => 'master',
         'environment' => 'production', // staging or production
-        'version' => '2.3.4',
+        'version' => '2.3.5',
         'php_version' => phpversion(),
         'wp_version' => (empty($wp_version) ? 'Unknown' : $wp_version),
         'wc_version' => function_exists('WC') ? WC()->version : null,

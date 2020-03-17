@@ -1,0 +1,20 @@
+2020-03-17T12:47:32+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/inc/woocommerce/storefront-woocommerce-template-functions.php:908
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): available_attributes('')
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/content-product.php(49): do_action('woocommerce_sho...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/template.php(724): require('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(197): load_template('/home/a/a99953z...', false)
+#6 /home/a/a99953zd/photo-store/public_html/wp-cont в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/inc/woocommerce/storefront-woocommerce-template-functions.php на строке 908
+
+2020-03-17T17:09:05+00:00 CRITICAL Uncaught Error: Call to undefined function apply_filter() in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/inc/woocommerce/storefront-woocommerce-template-functions.php:922
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): available_attributes('')
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/content-product.php(49): do_action('woocommerce_sho...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/template.php(724): require('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(197): load_template('/home/a/a99953z...', false)
+#6 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/templ в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/inc/woocommerce/storefront-woocommerce-template-functions.php на строке 922
+

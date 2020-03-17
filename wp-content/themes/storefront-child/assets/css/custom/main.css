@@ -1,15 +1,19 @@
 .main__items {
   padding-top: 40px;
 }
-.main__item {
+.main__item, .product.type-product {
   background-color: #FFF;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.1);
   padding: 10px;
   border-radius: 5px;
 }
-.main__item__photo {
+.main__item__photo, .product.type-product img {
   width: 100%;
   height: 230px;
+}
+ul.products {
+  display: flex;
+  flex-wrap: wrap;
 }
 .main__item__title {
   font-size: 22px;

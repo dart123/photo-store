@@ -114,3 +114,14 @@ if ( class_exists( 'WC_Brands' ) ) {
 	add_action( 'woocommerce_single_product_summary', 'storefront_woocommerce_brands_single', 4 );
 	add_action( 'homepage', 'storefront_woocommerce_brands_homepage_section', 80 );
 }
+
+//Переместить закрывающий тег ссылки на товар перед выводом формата
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 15);
+
+//Показать атрибуты на странице каталога
+add_action( 'woocommerce_shop_loop_item_title', 'available_attributes', 20 );
+
+add_filter( 'woocommerce_product_add_to_cart_text', 'my_custom_cart_button_text', 10, 2 );
+
+//add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 20);
