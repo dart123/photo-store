@@ -919,27 +919,36 @@ function available_attributes()
     $id = $product->get_id();
     $variations = $product->get_available_variations();
 
+    //var_dump($product->get_variation_prices());
+    //var_dump($product->get_price());
+
+    apply_filters('woocommerce_variable_price_html', '', $product);
+
     apply_filters('woocommerce_product_add_to_cart_text', '', $product);
     //var_dump($product-> get_variation_attributes());
-//var_dump($product->add_to_cart_text());
+    $product_prices = $product->get_variation_prices()["price"];
+
     if (isset($variations) && !empty($variations))
     {
-        //var_dump($variations);
-        //var_dump($product);
         echo '<div class="custom-select">
                 <div class="custom-select__label">Формат</div>
                     <div class="custom-select__select">
                         <select class="attribute_select" id="' . $id . '" style="font-size: 1.2em">';
-//&quantity=3
         foreach ($variations as $variation)
         {
             if ($variation['is_purchasable'] && $variation['is_in_stock'])
                 foreach ($variation['attributes'] as $attribute_name => $attribute_value)
                 {
-                    echo '<option class="' . $attribute_name . '" value="'. $variation['variation_id'] .'">' . $attribute_value . '</option>';
+                    echo '<option class="' . $attribute_name . '" data-price="'. (int)$product_prices[$variation['variation_id']] . '" value="'. $variation['variation_id'] .'">' . $attribute_value . '</option>';
                 }
         }
 
         echo '</select></div></div>';
     }
+}
+
+function custom_variation_price( $price, $product ) {
+    $price = '';
+    $price .= wc_price($product->get_price());
+    return $price;
 }

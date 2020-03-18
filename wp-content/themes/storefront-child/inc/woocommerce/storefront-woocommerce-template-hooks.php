@@ -124,4 +124,8 @@ add_action( 'woocommerce_shop_loop_item_title', 'available_attributes', 20 );
 
 add_filter( 'woocommerce_product_add_to_cart_text', 'my_custom_cart_button_text', 10, 2 );
 
+//Кастомное отображение цены вариативных товаров
+add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
+
+
 //add_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 20);
