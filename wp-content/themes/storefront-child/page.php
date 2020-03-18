@@ -18,7 +18,7 @@ get_header(); ?>
 			<?php
 			while ( have_posts() ) :
 				the_post();
-
+                echo apply_filters('the_content',$wp_query->post->post_content);
 				do_action( 'storefront_page_before' );
 
 				get_template_part( 'content', 'page' );

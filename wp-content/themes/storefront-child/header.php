@@ -65,7 +65,7 @@
         ?>
 
         </nav>
-        <a class="header__menu__item-img bkg-img person" href="/"></a>
+        <a class="header__menu__item-img bkg-img person" href="/profile"></a>
         <?php
         storefront_header_cart();
         storefront_primary_navigation_wrapper_close();
