@@ -592,7 +592,7 @@ a.reset_variations {
  * Breadcrumbs
  */
 .storefront-breadcrumb {
-  margin: 0 0 1.618em;
+  /*margin: 0 0 1.618em;*/
   padding: 1em 0; }
 
 .woocommerce-breadcrumb {

@@ -1,3 +1,9 @@
+.storefront-breadcrumb {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: calc(80px + 20px) !important;
+  height: 70px;
+}
 .main__items {
   padding-top: 40px;
 }
@@ -7,6 +13,16 @@
   padding: 10px;
   border-radius: 5px;
 }
+.product.type-product {
+  display: flex;
+  flex-direction: column;
+}
+.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+  flex-grow: 1;
+}
+/*.woocommerce-LoopProduct-link.woocommerce-loop-product__link:hover {*/
+/*  cursor: pointer !important;*/
+/*}*/
 .main__item__photo, .product.type-product img {
   width: 100%;
   height: 230px;

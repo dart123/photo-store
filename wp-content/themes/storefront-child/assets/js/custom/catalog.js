@@ -11,6 +11,9 @@ function generate_attribute_url(el)
 }
 
 jQuery(document).ready(function(){
+    if (jQuery('.storefront-breadcrumb').length > 0)
+        jQuery('#content').css('padding-top', '0');
+
     jQuery('.attribute_select').each(function(index){
         jQuery(this).parents('.custom-select').siblings('a.add_to_cart_button').attr('href', generate_attribute_url(jQuery(this) ) );
     });
@@ -33,7 +36,11 @@ jQuery(document).ready(function(){
         let price_el = jQuery(this).parents('.main__item__cont').find(".woocommerce-Price-amount.amount");
         //let current_price = price_el.clone().children().remove().end().text();
         let selected_option = jQuery(this).parents('.main__item__cont').siblings('.custom-select').find('.attribute_select option:selected');
-        let new_price = selected_option.data('price') * jQuery(this).val();
+
+        if (selected_option.length > 0 && typeof selected_option !== 'undefined')
+            var new_price = selected_option.data('price') * jQuery(this).val();
+        else
+            var new_price = cart_btn.data('base_price') * jQuery(this).val();
         price_el.text(new_price);
         price_el.append("<span class='woocommerce-Price-currencySymbol'>₽</span>");
 
