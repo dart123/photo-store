@@ -82,6 +82,12 @@ function my_body_classes( $classes ) {
 
 }
 
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+function woocommerce_template_product_description() {
+    wc_get_template( 'single-product/tabs/description.php' );
+}
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 20 );
 //function register_form_fields() {
 //    return apply_filters( 'woocommerce_forms_field', array(
 //        'woocommerce_my_account_page' => array(

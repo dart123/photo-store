@@ -7,13 +7,13 @@
 .main__items {
   padding-top: 40px;
 }
-.main__item, .product.type-product {
+.main__item, ul.products .product.type-product {
   background-color: #FFF;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.1);
   padding: 10px;
   border-radius: 5px;
 }
-.product.type-product {
+ul.products .product.type-product {
   display: flex;
   flex-direction: column;
 }
