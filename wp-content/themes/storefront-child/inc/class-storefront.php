@@ -330,6 +330,7 @@ if ( ! class_exists( 'Storefront' ) ) :
             wp_enqueue_script( 'jquery' );
             //Custom scripts
             wp_enqueue_script( 'custom-script-catalog', get_template_directory_uri() . '/assets/js/custom/catalog.js', array('jquery'), $storefront_version );
+            wp_enqueue_script( 'custom-script-profile', get_template_directory_uri() . '/assets/js/custom/profile.js', array('jquery'), $storefront_version );
             /***************************/
 
 			wp_enqueue_style( 'storefront-style', get_template_directory_uri() . '/style.css', '', $storefront_version );

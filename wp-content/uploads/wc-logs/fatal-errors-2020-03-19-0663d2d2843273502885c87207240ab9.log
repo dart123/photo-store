@@ -1,0 +1,9 @@
+2020-03-19T08:27:01+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function apply_filters(), 1 passed in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php on line 86 and exactly 2 expected in /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php:181
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php(86): apply_filters('woocommerce_for...')
+#1 /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php(97): woocommerce_edit_my_account_page()
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): edit_my_account_page_woocommerce('')
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/templates/myaccount/form-login.php(103): do_action('wooc в /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php на строке 181
+

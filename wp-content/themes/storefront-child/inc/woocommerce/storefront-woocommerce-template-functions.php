@@ -952,3 +952,12 @@ function custom_variation_price( $price, $product ) {
     $price .= wc_price($product->get_price());
     return $price;
 }
+
+//function custom_login_logo() {
+//    echo '<div class="login__top">
+//            <img class="login__logo" src="/wp-content/themes/storefront-child/assets/images/custom/logo@2x.png">
+//            <div class="login__title">
+//              <div>ФОТОСТУДИЯ</div> <div>ФОКУС</div>
+//            </div>
+//          </div>';
+//}

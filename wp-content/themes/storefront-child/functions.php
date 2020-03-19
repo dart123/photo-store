@@ -82,6 +82,33 @@ function my_body_classes( $classes ) {
 
 }
 
+//function register_form_fields() {
+//    return apply_filters( 'woocommerce_forms_field', array(
+//        'woocommerce_my_account_page' => array(
+//            'type'        => 'text',
+//            'label'       => 'Название/номер группы',
+//            'placeholder' => 'Название/номер группы',
+//            'required'    => true,
+//        ),
+//    ) );
+//}
+//function custom_register_form() {
+//    $fields = register_form_fields();
+//    foreach ( $fields as $key => $field_args ) {
+//        woocommerce_form_field( $key, $field_args );
+//    }
+//}
+//
+//function custom_login_form() {
+//    $fields = register_form_fields();
+//    foreach ( $fields as $key => $field_args ) {
+//        woocommerce_form_field( $key, $field_args );
+//    }
+//}
+//add_action( 'woocommerce_register_form', 'custom_register_form', 15 );
+//
+//add_action( 'woocommerce_login_form_start', 'custom_login_form', 15);
+
 /**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
  * https://github.com/woocommerce/theme-customisations

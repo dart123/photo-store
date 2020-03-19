@@ -287,31 +287,36 @@ ul.page-numbers > li > * {
   height: 22px;
 }
 
-.input {
-  width: 100%;
-  padding: 10px;
+.input, .woocommerce-form-login.login .input-text, .woocommerce-form-register.register .input-text,
+.woocommerce-form-login__submit, .woocommerce-form-register__submit {
+  width: 100% !important;
+  padding: 10px !important;
   border: solid 1px #C9BBC8;
   border-radius: 5px;
   height: 42px;
+  background-color: white;
 }
 .input:not([type="submit"]) {
   margin: 5px 0 20px 0;
 }
 .input[type="submit"],
-button.input {
-  background-color: #2458A4;
-  color: #FFF;
-  font-weight: 800;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+button.input, .woocommerce-form-login__submit, .woocommerce-form-register__submit {
+  background-color: #2458A4 !important;
+  color: #FFF !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-size: 18px !important;
+  margin-top: 20px !important;
+  padding: 5px !important;
 }
 .input[type="submit"].alt-color,
 button.input.alt-color {
   background-color: #FFF;
   color: #2458A4;
 }
-.input__label {
+.input__label, .woocommerce-form-login.login label, .woocommerce-form-register.register label {
   color: #747474;
 }
 
