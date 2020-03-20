@@ -1,9 +1,44 @@
+.input[type="submit"].alt-color,
+button.input.alt-color {
+  background-color: #FFF;
+  color: #2458A4;
+}
+.checkout-button {
+  background-color: #FFF !important;
+  color: #2458A4 !important;
+  width: 100%;
+}
 .basket__table {
-  background-color: rgba(255,255,255,0.9);
-  box-shadow: 0 0 2px 0 rgba(0,0,0,0.44);
-  border-radius: 5px;
-  margin-bottom: 30px;
+  background-color: rgba(255,255,255,0.5) !important;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.44) !important;
+  border-radius: 5px !important;
+  margin-bottom: 30px !important;
   overflow: hidden;
+}
+.basket__table th, .basket__table td {
+  background-color: rgba(255,255,255,0.5) !important;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.44) !important;
+}
+.basket__table td {
+  color: #2458A4;
+  font-weight: 800;
+}
+.order-total {
+  font-size: 25px;
+  font-weight: 800;
+  color: #2458A4;
+}
+.order-total th, .order-total td {
+  padding: 20px;
+}
+table.cart td.actions {
+  border-top: none !important;
+}
+table.cart td.actions button[name="update_cart"] {
+  margin: 10px;
+}
+tr.cart-subtotal {
+  display: none;
 }
 .basket__table__cont {
   overflow-x: auto;
@@ -25,10 +60,15 @@
 }
 .basket__table__item__delete {
   background-image: url('../../images/custom/delete.svg');
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   display: inline-block;
+}
+.woocommerce-cart-form .product-remove {
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .basket__total {

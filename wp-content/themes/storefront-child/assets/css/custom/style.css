@@ -321,11 +321,6 @@ button.input, .woocommerce-form-login__submit, .woocommerce-form-register__submi
   margin-top: 20px !important;
   padding: 5px !important;
 }
-.input[type="submit"].alt-color,
-button.input.alt-color {
-  background-color: #FFF;
-  color: #2458A4;
-}
 .input__label, .woocommerce-form-login.login label, .woocommerce-form-register.register label {
   color: #747474;
 }

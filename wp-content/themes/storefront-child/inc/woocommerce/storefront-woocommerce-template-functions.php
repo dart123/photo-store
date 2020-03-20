@@ -953,6 +953,10 @@ function custom_variation_price( $price, $product ) {
     return $price;
 }
 
+function cart_title() {
+    echo '<h1 class="content__title">Корзина</h1>';
+}
+
 //function custom_login_logo() {
 //    echo '<div class="login__top">
 //            <img class="login__logo" src="/wp-content/themes/storefront-child/assets/images/custom/logo@2x.png">

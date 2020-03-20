@@ -11,7 +11,8 @@ table.variations {
 /*  flex-wrap: wrap;*/
 /*}*/
 form.variations_form.cart p.price {
-  margin-right: 100px !important;
+  margin-right: 8% !important;
+  max-width: 30%;
 }
 form.variations_form.cart {
   display: flex;
