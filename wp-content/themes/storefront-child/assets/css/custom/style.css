@@ -19,7 +19,7 @@ button {
 }
 * {
   box-sizing: border-box;
-  font-family: 'Roboto';
+  font-family: 'Roboto' !important;
   color: #202020;
 }
 
@@ -214,13 +214,18 @@ ul.page-numbers > li > * {
   margin-right: 20px;
 }
 
-.number-select {
+.number-select, form.variations_form.cart div.quantity {
+  /*margin: auto 0;*/
+  margin-top: 4.5%;
   width: 80px;
   height: 40px;
   border: solid 1px #C9BBC8;
   border-radius: 5px;
   overflow: hidden;
   display: inline-flex;
+}
+form.variations_form.cart div.quantity input {
+  width: 100%;
 }
 .number-select * {
   color: #2458A4;
@@ -247,15 +252,17 @@ ul.page-numbers > li > * {
 .number-select__controls > button:first-child {
   border-bottom: solid 1px #C9BBC8;
 }
-
+ul.products .number-select {
+  margin-top: 0 !important;
+}
 .custom-select {
   height: 70px;
 }
-.custom-select__select {
+.custom-select__select, table.variations td.select-format {
   position: relative;
   cursor: pointer;
 }
-.custom-select__select > select {
+.custom-select__select > select, table.variations select#pa_format {
   width: 100%;
   height: 40px;
   outline: none;
@@ -270,7 +277,7 @@ ul.page-numbers > li > * {
   cursor: pointer;
   padding: 8px;
 }
-.custom-select__select:after {
+.custom-select__select:after, table.variations td.select-format:after {
   content: '';
   width: 0;
   height: 0;
@@ -278,10 +285,13 @@ ul.page-numbers > li > * {
   border: solid 8px transparent;
   border-top: solid 8px #000;
   position: absolute;
-  right: 8px;
+  right: 35%;
   top: 16px;
 }
-.custom-select__label {
+ul.products .custom-select__select:after {
+  right: 8px;
+}
+.custom-select__label, table.variations td.label {
   color: #747474;
   margin-bottom: 5px;
   height: 22px;
