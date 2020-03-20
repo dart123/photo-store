@@ -87,7 +87,34 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_p
 function woocommerce_template_product_description() {
     wc_get_template( 'single-product/tabs/description.php' );
 }
+
+//add_filter('woocommerce_checkout_fields', 'custom_checkout_fields');
+//function custom_checkout_fields($fields)
+//{
+//    echo 'before: <pre>'.print_r($fields, true).'</pre>';
+//    unset($fields['billing_country']);
+//    unset($fields['billing_address_1']);
+//    unset($fields['billing_address_2']);
+//    unset($fields['billing_city']);
+//    unset($fields['billing_state']);
+//    unset($fields['billing_postcode']);
+//
+//    unset($fields['shipping_country']);
+//    unset($fields['shipping_address_1']);
+//    unset($fields['shipping_address_2']);
+//    unset($fields['shipping_city']);
+//    unset($fields['shipping_state']);
+//    unset($fields['shipping_postcode']);
+//
+//    unset($fields['order']['order_comments']);
+//
+//    echo 'after: <pre>'.print_r($fields, true).'</pre>';
+//    return $fields;
+//}
+
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 20 );
+
+add_filter('woocommerce_cart_needs_payment', '__return_false');
 //function register_form_fields() {
 //    return apply_filters( 'woocommerce_forms_field', array(
 //        'woocommerce_my_account_page' => array(

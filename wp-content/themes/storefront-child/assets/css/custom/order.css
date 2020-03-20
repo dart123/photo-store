@@ -1,9 +1,33 @@
+.form-row-wide {
+  width: calc((100% / 3) - 20px) !important;
+}
+.checkout-text {
+  width: 60% !important;
+}
+#order_review {
+  background: none !important;
+}
+#order_review div.form-row.place-order {
+  background: none !important;
+}
+button[name="woocommerce_checkout_place_order"] {
+  background-color: #FFF !important;
+  color: #2458A4 !important;
+}
 .order__form {
   background-color: rgba(255,255,255,0.9);
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.44);
   border-radius: 5px;
 }
-
+.order__form p.form-row input {
+  padding: 10px;
+  border: solid 1px #C9BBC8;
+  border-radius: 5px;
+  background-color: white;
+}
+.form-row.place-order {
+  margin-top: 0 !important;
+}
 .order__form__cont {
   display: flex;
   flex-wrap: wrap;

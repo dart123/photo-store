@@ -141,6 +141,10 @@ add_action('woocommerce_single_variation', 'woocommerce_template_single_price', 
 remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10);
 
 add_action('woocommerce_before_cart', 'cart_title', 10);
+
+remove_action('woocommerce_checkout_order_review', 'woocommerce_order_review', 10 );
+
+add_action('woocommerce_before_checkout_form', 'checkout_title', 15);
 //add_action('woocommerce_after_single_product_summary', 'woocommerce_template_single_price', 10);
 
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
