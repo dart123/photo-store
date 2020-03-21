@@ -68,7 +68,7 @@ ul.products {
   font-size: 25px;
   font-weight: 800;
 }
-.main__item__button {
+.main__item__button, ul.products .product .added_to_cart {
   background-color: #2458A4 !important;
   width: 100%;
   height: 50px;

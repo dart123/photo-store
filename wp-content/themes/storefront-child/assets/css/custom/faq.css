@@ -17,6 +17,7 @@
   font-size: 20px;
   line-height: 20px;
   width: calc(100% - 20px);
+  font-weight: bold;
 }
 .faq__list__item__more {
   float: right;

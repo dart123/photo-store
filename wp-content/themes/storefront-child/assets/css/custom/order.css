@@ -1,4 +1,4 @@
-.form-row-wide {
+.checkout.woocommerce-checkout.order__form .form-row-wide {
   width: calc((100% / 3) - 20px) !important;
 }
 .checkout-text {
