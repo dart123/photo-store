@@ -71,20 +71,4 @@ $requisites = get_field('requisites');
     <!-- map -->
 </div>
 
-<?php
-//if( $product_names && $product_prices && count($product_names)==count($product_prices) ): ?>
-<!--    <table class="prices__list">-->
-<!--        <tbody>-->
-<!--        --><?php //foreach (array_combine(array_values($product_names), array_values($product_prices)) as $name => $price): ?>
-<!--            --><?php //if (!empty($name) && !empty($price)): ?>
-<!--                <tr>-->
-<!--                    <td>--><?php //echo $name; ?><!--</td>-->
-<!--                    <td>--><?php //echo $price; ?><!-- ₽</td>-->
-<!--                </tr>-->
-<!--            --><?php //endif ?>
-<!--        --><?php //endforeach; ?>
-<!--        </tbody>-->
-<!--    </table>-->
-<?php //endif; ?>
-
 <?php get_footer(); ?>

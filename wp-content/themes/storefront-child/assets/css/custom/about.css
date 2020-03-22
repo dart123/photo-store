@@ -1,14 +1,25 @@
+.about__reviews__item .user_info {
+  float: left;
+}
 .about__content h2 {
   font-size: 37px;
   font-weight: 800;
 }
-
+.about__photos .slick-track {
+  display: flex;
+}
 .about__info {
   display: flex;
   justify-content: space-between;
 }
 .about__info__img {
   width: 300px;
+  height: 300px;
+}
+.about_fact_description {
+  height: 220px;
+  line-height: 1.2;
+  overflow: hidden;
 }
 .about__info__cont {
   width: calc(100% - 320px);
@@ -24,6 +35,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 .about__facts__item {
   margin: 10px 20px;
@@ -32,8 +44,8 @@
   /*max-height: 200px;
   overflow: hidden;*/
 }
-.about__facts__item > img {
-
+.about__facts__item img {
+  height: 200px;
 }
 .about__facts__item > h4 {
   color: #FFF;
@@ -45,14 +57,26 @@
 }
 
 .about__photos {
-  height: 300px;
+  height: 400px;
   margin-top: 50px;
   position: relative;
+  margin-bottom: 50px !important;
 }
 .about__photos img {
   margin: 0 10px;
+  height: 400px;
 }
 
+.about__reviews h2 {
+  font-weight: bold;
+}
+.about__certs {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+.about__certs h2 {
+  font-weight: bold;
+}
 .about__photos,
 .about__reviews__items,
 .about__certs__items {
@@ -75,6 +99,7 @@
   border-radius: 5px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   width: 500px;
+  height: 300px;
   padding: 20px;
   display: inline-block;
   margin: 0 10px;
@@ -86,7 +111,7 @@
 }
 .about__reviews__item__user {
   width: calc(100% - 130px);
-  height: 50px;
+  height: 60px;
 }
 .about__reviews__item__user > img {
   width: 50px;
@@ -108,6 +133,7 @@
 }
 .about__reviews__item__rate {
   width: 130px;
+  display: flex;
 }
 .about__reviews__item__rate > img {
   width: 20px;
