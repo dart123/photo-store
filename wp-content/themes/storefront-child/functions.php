@@ -115,6 +115,43 @@ function woocommerce_template_product_description() {
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 20 );
 
 add_filter('woocommerce_cart_needs_payment', '__return_false');
+
+add_action( /*'woocommerce_checkout_order_processed'*/'woocommerce_payment_complete', 'send_customer_invoice',  10, 1 );
+//add_action('woocommerce_single_product_summary', 'send_customer_invoice', 25);
+//function is_express_delivery( $order_id ){
+//
+//    echo 'aaaaa';
+//    //$order = new WC_Order( $order_id );
+//    //You can do here whatever you want
+//
+//}
+function send_customer_invoice($order_id){//$order_id, $order ) {
+
+    $order = wc_get_order( $order_id );
+    $order->update_status('pending');
+
+    $heading = 'Подтверждение заказа';
+    $subject = 'Подтверждение заказа';
+
+    // Get WooCommerce email objects
+    $mailer = WC()->mailer()->get_emails();
+
+    // Use one of the active emails e.g. "Customer_Completed_Order"
+    // Wont work if you choose an object that is not active
+    // Assign heading & subject to chosen object
+    $mailer['WC_Email_Customer_Invoice']->heading = $heading;
+    $mailer['WC_Email_Customer_Invoice']->settings['heading'] = $heading;
+    $mailer['WC_Email_Customer_Invoice']->subject = $subject;
+    $mailer['WC_Email_Customer_Invoice']->settings['subject'] = $subject;
+
+    //echo '<pre>'.print_r($mailer['WC_Email_Customer_Invoice'], true).'</pre>';
+    // Send the email with custom heading & subject
+    $mailer['WC_Email_Customer_Invoice']->trigger( $order_id );
+
+    // To add email content use https://businessbloomer.com/woocommerce-add-extra-content-order-email/
+    // You have to use the email ID chosen above and also that $order->get_status() == "refused"
+
+}
 //function register_form_fields() {
 //    return apply_filters( 'woocommerce_forms_field', array(
 //        'woocommerce_my_account_page' => array(

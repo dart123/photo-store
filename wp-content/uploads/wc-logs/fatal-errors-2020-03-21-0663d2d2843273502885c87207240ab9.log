@@ -1,0 +1,9 @@
+2020-03-21T20:50:37+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function bbloomer_status_custom_notification(), 1 passed in /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php on line 288 and exactly 2 expected in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php:128
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): bbloomer_status_custom_notification('')
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/content-single-product.php(60): do_action('woocommerce_sin...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/template.php(724): require('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.p в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php на строке 128
+
