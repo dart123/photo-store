@@ -5,6 +5,12 @@
   overflow: hidden;
   margin-top: 50px;
 }
+prices__list tr, .prices__list td {
+  background-color: transparent !important;
+}
+.prices__list td, .prices__list th {
+  padding: 0 !important;
+}
 .prices__list tbody,
 .prices__list tr {
   width: 100%;
@@ -22,7 +28,7 @@
   display: inline-block;
 }
 .prices__list td:first-child {
-
+  float: left;
 }
 .prices__list td:last-child {
   text-align: right;

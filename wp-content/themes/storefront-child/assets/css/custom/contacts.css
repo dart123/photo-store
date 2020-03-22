@@ -4,6 +4,9 @@
   align-items: center;
   flex-wrap: wrap;
 }
+.contacts__info .whatsapp {
+  float: left;
+}
 .contacts__cont > * {
   width: calc(50% - 10px);
 }
