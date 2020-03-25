@@ -65,9 +65,25 @@
         ?>
 
         </nav>
+
         <a class="header__menu__item-img bkg-img person" href="/profile"></a>
         <?php
         storefront_header_cart();
+        ?>
+
+        <a class="header__menu__item-img bkg-img menu" href="##"></a>
+        <div class="mobile-menu">
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'handheld',
+                'menu_class'        => 'mobile-menu-ul text-left',
+            ) );
+            ?>
+        </div>
+<!--        <div class="mobile-menu-bg">-->
+<!--        </div>-->
+
+        <?php
         storefront_primary_navigation_wrapper_close();
 		do_action( 'storefront_header' );
 		?>

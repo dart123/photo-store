@@ -18,6 +18,22 @@ function get_product_price(el)
 }
 
 jQuery(document).ready(function(){
+    //Открытие и закрытие мобильного меню
+    var i = 0;
+    jQuery('#header .header__menu__item-img.bkg-img.menu').click(function(){
+        if( i==0 )
+        {
+            jQuery('#header .mobile-menu, #header .mobile-menu-bg').show("slow");
+            i++;
+        }
+        else
+        {
+            jQuery('#header .mobile-menu, #header .mobile-menu-bg').hide("slow");
+            i = 0;
+        }
+
+    });
+
     if (jQuery('.storefront-breadcrumb').length > 0)
         jQuery('#content').css('padding-top', '0');
 
