@@ -88,9 +88,12 @@ function woocommerce_template_product_description() {
     wc_get_template( 'single-product/tabs/description.php' );
 }
 
-//add_filter('woocommerce_checkout_fields', 'custom_checkout_fields');
-//function custom_checkout_fields($fields)
-//{
+add_filter('woocommerce_checkout_fields', 'custom_checkout_fields');
+function custom_checkout_fields($fields)
+{
+    $fields['account']['account_username']['label'] = '№ Учреждения';
+    $fields['account']['account_username']['placeholder'] = '№ Учреждения';
+    unset($fields['account']['account_username']);
 //    echo 'before: <pre>'.print_r($fields, true).'</pre>';
 //    unset($fields['billing_country']);
 //    unset($fields['billing_address_1']);
@@ -109,14 +112,15 @@ function woocommerce_template_product_description() {
 //    unset($fields['order']['order_comments']);
 //
 //    echo 'after: <pre>'.print_r($fields, true).'</pre>';
-//    return $fields;
-//}
+    return $fields;
+}
 
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 20 );
 
-add_filter('woocommerce_cart_needs_payment', '__return_false');
+//Убрать способы оплаты со страницы оформления заказа
+//add_filter('woocommerce_cart_needs_payment', '__return_false');
 
-add_action( /*'woocommerce_checkout_order_processed'*/'woocommerce_payment_complete', 'send_customer_invoice',  10, 1 );
+//add_action( /*'woocommerce_checkout_order_processed'*/'woocommerce_payment_complete', 'send_customer_invoice',  10, 1 );
 //add_action('woocommerce_single_product_summary', 'send_customer_invoice', 25);
 //function is_express_delivery( $order_id ){
 //
@@ -125,33 +129,109 @@ add_action( /*'woocommerce_checkout_order_processed'*/'woocommerce_payment_compl
 //    //You can do here whatever you want
 //
 //}
-function send_customer_invoice($order_id){//$order_id, $order ) {
+//function send_customer_invoice($order_id){//$order_id, $order ) {
+//
+//    $order = wc_get_order( $order_id );
+//    $order->update_status('pending');
+//
+//    $heading = 'Подтверждение заказа';
+//    $subject = 'Подтверждение заказа';
+//
+//    // Get WooCommerce email objects
+//    $mailer = WC()->mailer()->get_emails();
+//
+//    // Use one of the active emails e.g. "Customer_Completed_Order"
+//    // Wont work if you choose an object that is not active
+//    // Assign heading & subject to chosen object
+//    $mailer['WC_Email_Customer_Invoice']->heading = $heading;
+//    $mailer['WC_Email_Customer_Invoice']->settings['heading'] = $heading;
+//    $mailer['WC_Email_Customer_Invoice']->subject = $subject;
+//    $mailer['WC_Email_Customer_Invoice']->settings['subject'] = $subject;
+//
+//    //echo '<pre>'.print_r($mailer['WC_Email_Customer_Invoice'], true).'</pre>';
+//    // Send the email with custom heading & subject
+//    $mailer['WC_Email_Customer_Invoice']->trigger( $order_id );
+//
+//    // To add email content use https://businessbloomer.com/woocommerce-add-extra-content-order-email/
+//    // You have to use the email ID chosen above and also that $order->get_status() == "refused"
+//
+//}
+function remove_links_my_account( $items ) {
+    $new_items = $items;
+    //var_dump($new_items);
 
-    $order = wc_get_order( $order_id );
-    $order->update_status('pending');
+    unset($new_items['downloads']);
+    unset($new_items['edit-address']);
 
-    $heading = 'Подтверждение заказа';
-    $subject = 'Подтверждение заказа';
+    $new_items['orders'] = 'История покупок';
+    $new_items['edit-account'] = 'Личные данные';
 
-    // Get WooCommerce email objects
-    $mailer = WC()->mailer()->get_emails();
-
-    // Use one of the active emails e.g. "Customer_Completed_Order"
-    // Wont work if you choose an object that is not active
-    // Assign heading & subject to chosen object
-    $mailer['WC_Email_Customer_Invoice']->heading = $heading;
-    $mailer['WC_Email_Customer_Invoice']->settings['heading'] = $heading;
-    $mailer['WC_Email_Customer_Invoice']->subject = $subject;
-    $mailer['WC_Email_Customer_Invoice']->settings['subject'] = $subject;
-
-    //echo '<pre>'.print_r($mailer['WC_Email_Customer_Invoice'], true).'</pre>';
-    // Send the email with custom heading & subject
-    $mailer['WC_Email_Customer_Invoice']->trigger( $order_id );
-
-    // To add email content use https://businessbloomer.com/woocommerce-add-extra-content-order-email/
-    // You have to use the email ID chosen above and also that $order->get_status() == "refused"
-
+    //var_dump($new_items);
+    return $new_items;
 }
+
+add_filter( 'woocommerce_account_menu_items', 'remove_links_my_account' );
+
+function new_orders_columns( $columns = array() ) {
+
+//    // Hide the columns
+//    if( isset($columns['order-total']) ) {
+//        // Unsets the columns which you want to hide
+//        unset( $columns['order-number'] );
+//        unset( $columns['order-date'] );
+//        unset( $columns['order-status'] );
+//        unset( $columns['order-total'] );
+//        unset( $columns['order-actions'] );
+//    }
+
+    // Add new columns
+//    $columns['order-number'] = __( 'Reserva', 'Text Domain' );
+//    $columns['reservation-date'] = __( 'Para el día', 'Text Domain' );
+//    $columns['reservation-people'] = __( 'Seréis', 'Text Domain' );
+//    $columns['order-status'] = __( 'Estado de la reserva', 'Text Domain' );
+//    $columns['order-actions'] = __( '&nbsp;', 'Text Domain' );
+
+    $columns['order-id'] = 'ID заказа';
+    $columns['order-item-quantity'] = 'Количество товара';
+    $columns['order-product-ids'] = 'ID товаров заказа';
+
+    return $columns;
+}
+add_filter( 'woocommerce_account_orders_columns', 'new_orders_columns' );
+//add_shortcode( 'my_purchased_products', 'bbloomer_products_bought_by_curr_user' );
+
+//function bbloomer_products_bought_by_curr_user() {
+//
+//    // GET CURR USER
+//    $current_user = wp_get_current_user();
+//    if ( 0 == $current_user->ID ) return;
+//
+//    // GET USER ORDERS (COMPLETED + PROCESSING)
+//    $customer_orders = get_posts( array(
+//        'numberposts' => -1,
+//        'meta_key'    => '_customer_user',
+//        'meta_value'  => $current_user->ID,
+//        'post_type'   => wc_get_order_types(),
+//        'post_status' => array_keys( wc_get_is_paid_statuses() ),
+//    ) );
+//
+//    // LOOP THROUGH ORDERS AND GET PRODUCT IDS
+//    if ( ! $customer_orders ) return;
+//    $product_ids = array();
+//    foreach ( $customer_orders as $customer_order ) {
+//        $order = wc_get_order( $customer_order->ID );
+//        $items = $order->get_items();
+//        foreach ( $items as $item ) {
+//            $product_id = $item->get_product_id();
+//            $product_ids[] = $product_id;
+//        }
+//    }
+//    $product_ids = array_unique( $product_ids );
+//    $product_ids_str = implode( ",", $product_ids );
+//
+//    // PASS PRODUCT IDS TO PRODUCTS SHORTCODE
+//    return do_shortcode("[products ids='$product_ids_str']");
+//}
 //function register_form_fields() {
 //    return apply_filters( 'woocommerce_forms_field', array(
 //        'woocommerce_my_account_page' => array(
@@ -178,7 +258,6 @@ function send_customer_invoice($order_id){//$order_id, $order ) {
 //add_action( 'woocommerce_register_form', 'custom_register_form', 15 );
 //
 //add_action( 'woocommerce_login_form_start', 'custom_login_form', 15);
-
 /**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
  * https://github.com/woocommerce/theme-customisations

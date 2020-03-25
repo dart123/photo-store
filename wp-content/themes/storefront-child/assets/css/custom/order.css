@@ -4,6 +4,10 @@
 .checkout-text {
   width: 60% !important;
 }
+#customer_details .woocommerce-account-fields {
+  padding: 20px;
+  padding-top: 0;
+}
 #order_review {
   background: none !important;
 }
@@ -52,7 +56,7 @@ button[name="woocommerce_checkout_place_order"] {
 
 .order__form__bottom {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background-color: #DDE7EE;
   padding: 20px;
 }

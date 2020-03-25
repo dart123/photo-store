@@ -52,6 +52,15 @@ ul.products {
   box-shadow: none;
   background-color: transparent;
 }
+ul.products li.product div.quantity input:focus {
+  background: none;
+  border: none;
+}
+
+ul.products li.product div.quantity {
+  width: 100%;
+  padding-right: 10px;
+}
 /*.main__item__cont input[name="quantity"]:focus {*/
 /*  background-color: transparent;*/
 /*  border: none;*/

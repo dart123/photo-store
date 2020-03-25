@@ -1,0 +1,162 @@
+2020-03-25T09:59:44+00:00 DEBUG ---[ New Import ] PHP Memory: 26 MB, WP Memory: 40 MB
+2020-03-25T09:59:44+00:00 DEBUG Parsing products CSV.
+2020-03-25T09:59:44+00:00 DEBUG Finished parsing products CSV.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG ---
+2020-03-25T09:59:44+00:00 DEBUG Processing orders.
+2020-03-25T09:59:44+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:44+00:00 DEBUG Finished processing Orders.
+2020-03-25T09:59:45+00:00 DEBUG ---[ New Import ] PHP Memory: 26 MB, WP Memory: 40 MB
+2020-03-25T09:59:45+00:00 DEBUG Parsing products CSV.
+2020-03-25T09:59:45+00:00 DEBUG Finished parsing products CSV.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:45+00:00 DEBUG ---
+2020-03-25T09:59:45+00:00 DEBUG Processing orders.
+2020-03-25T09:59:45+00:00 DEBUG > &#8220;&#8221;Cannot insert order without order status.
+2020-03-25T09:59:45+00:00 DEBUG Finished processing Orders.
+2020-03-25T10:01:20+00:00 DEBUG ---[ New Import ] PHP Memory: 26 MB, WP Memory: 40 MB
+2020-03-25T10:01:20+00:00 DEBUG Parsing products CSV.
+2020-03-25T10:01:20+00:00 DEBUG Finished parsing products CSV.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG > &#8220;320&#8221;Order Successfully Updated.
+2020-03-25T10:01:20+00:00 DEBUG > Finished importing order 320
+2020-03-25T10:01:20+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG > &#8220;169&#8221;Order Successfully Updated.
+2020-03-25T10:01:20+00:00 DEBUG > Finished importing order 169
+2020-03-25T10:01:20+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG > &#8220;168&#8221;Order Successfully Updated.
+2020-03-25T10:01:20+00:00 DEBUG > Finished importing order 168
+2020-03-25T10:01:20+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG > &#8220;167&#8221;Order Successfully Updated.
+2020-03-25T10:01:20+00:00 DEBUG > Finished importing order 167
+2020-03-25T10:01:20+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG > &#8220;166&#8221;Order Successfully Updated.
+2020-03-25T10:01:20+00:00 DEBUG > Finished importing order 166
+2020-03-25T10:01:20+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG > &#8220;165&#8221;Order Successfully Updated.
+2020-03-25T10:01:20+00:00 DEBUG > Finished importing order 165
+2020-03-25T10:01:20+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:20+00:00 DEBUG > &#8220;164&#8221;Order Successfully Updated.
+2020-03-25T10:01:20+00:00 DEBUG > Finished importing order 164
+2020-03-25T10:01:20+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:20+00:00 DEBUG ---
+2020-03-25T10:01:20+00:00 DEBUG Processing orders.
+2020-03-25T10:01:21+00:00 DEBUG > &#8220;163&#8221;Order Successfully Updated.
+2020-03-25T10:01:21+00:00 DEBUG > Finished importing order 163
+2020-03-25T10:01:21+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:21+00:00 DEBUG ---
+2020-03-25T10:01:21+00:00 DEBUG Processing orders.
+2020-03-25T10:01:21+00:00 DEBUG > &#8220;162&#8221;Order Successfully Updated.
+2020-03-25T10:01:21+00:00 DEBUG > Finished importing order 162
+2020-03-25T10:01:21+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:21+00:00 DEBUG Finished processing Orders.
+2020-03-25T10:01:22+00:00 DEBUG ---[ New Import ] PHP Memory: 26 MB, WP Memory: 40 MB
+2020-03-25T10:01:22+00:00 DEBUG Parsing products CSV.
+2020-03-25T10:01:22+00:00 DEBUG Finished parsing products CSV.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;161&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 161
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;160&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 160
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;159&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 159
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;158&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 158
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;157&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 157
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;156&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 156
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;146&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 146
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:22+00:00 DEBUG > &#8220;100&#8221;Order Successfully Updated.
+2020-03-25T10:01:22+00:00 DEBUG > Finished importing order 100
+2020-03-25T10:01:22+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:22+00:00 DEBUG ---
+2020-03-25T10:01:22+00:00 DEBUG Processing orders.
+2020-03-25T10:01:23+00:00 DEBUG > &#8220;99&#8221;Order Successfully Updated.
+2020-03-25T10:01:23+00:00 DEBUG > Finished importing order 99
+2020-03-25T10:01:23+00:00 DEBUG Finished processing orders.
+2020-03-25T10:01:23+00:00 DEBUG Finished processing Orders.

@@ -1,6 +1,9 @@
 /*.woocommerce-form-register.register p:nth-child(2) {*/
 /*  display: none;*/
 /*}*/
+.woocommerce-MyAccount-navigation .woocommerce-MyAccount-navigation-link a::before {
+  content: '' !important;
+}
 .profile__buttons {
   display: flex;
 }

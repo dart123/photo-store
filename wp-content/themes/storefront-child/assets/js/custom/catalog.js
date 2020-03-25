@@ -9,10 +9,23 @@ function generate_attribute_url(el)
     let url = `/?add-to-cart=${product_id}&variation_id=${variation_id}&${attribute_name}=${attribute_val}&quantity=${amount}`;
     return url;
 }
+function get_product_price(el)
+{
+    let select = el.parents('.main__item__cont').siblings('.custom-select').find('select.attribute_select');
+    let selected_option = select.find('option:selected').length > 0 ? select.find('option:selected') : select.find('option')[0];
+    let price = selected_option.data('price');
+    return price;
+}
 
 jQuery(document).ready(function(){
     if (jQuery('.storefront-breadcrumb').length > 0)
         jQuery('#content').css('padding-top', '0');
+
+    //Устанавливаем правильную цену на все продукты при загрузке страницы
+    jQuery('ul.products .product .main__item__price .woocommerce-Price-amount.amount').each(function(){
+        jQuery(this).text(get_product_price(jQuery(this) ) );
+        jQuery(this).append("<span class='woocommerce-Price-currencySymbol'>₽</span>");
+    });
 
     jQuery('.attribute_select').each(function(index){
         jQuery(this).parents('.custom-select').siblings('a.add_to_cart_button').attr('href', generate_attribute_url(jQuery(this) ) );
