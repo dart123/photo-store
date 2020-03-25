@@ -959,6 +959,9 @@ function cart_title() {
 function checkout_title() {
     echo '<h1 class="content__title">Оформление заказа</h1>';
 }
+function account_title() {
+    echo '<h1 class="content__title" style="font-size: 35px; font-weight: bold">Профиль</h1>';
+}
 //function custom_login_logo() {
 //    echo '<div class="login__top">
 //            <img class="login__logo" src="/wp-content/themes/storefront-child/assets/images/custom/logo@2x.png">

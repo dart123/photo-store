@@ -33,9 +33,28 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 
 		<tbody>
 			<?php
+            $all_items = array();
 			foreach ( $customer_orders->orders as $customer_order ) {
 				$order      = wc_get_order( $customer_order ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
 				$item_count = $order->get_item_count() - $order->get_item_count_refunded();
+
+                $order_items = $order->get_items();
+
+                foreach ( $order_items as $item ) {
+                    array_push($all_items, $item);
+                    $item_quantity = $item->get_quantity( );
+                    $product_name = $item->get_name();
+                    $product_id = $item->get_product_id();
+                    $product = wc_get_product($product_id);
+                    $product_image = $product->get_image();
+
+                    if ( $product -> is_type( 'variable' )) {
+                        $variation_id = $item->get_variation_id();
+                        $variation = wc_get_product($variation_id);
+                        $variation_format = $variation->get_attribute('pa_format');
+                       // $variation_attributes = $variation->get_variation_attributes();
+                    }
+                //}
 				?>
 				<tr class="woocommerce-orders-table__row woocommerce-orders-table__row--status-<?php echo esc_attr( $order->get_status() ); ?> order">
 					<?php foreach ( wc_get_account_orders_columns() as $column_id => $column_name ) : ?>
@@ -43,69 +62,68 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 							<?php if ( has_action( 'woocommerce_my_account_my_orders_column_' . $column_id ) ) : ?>
 								<?php do_action( 'woocommerce_my_account_my_orders_column_' . $column_id, $order ); ?>
 
-							<?php elseif ( 'order-number' === $column_id ) : ?>
-								<a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
-									<?php echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
-								</a>
+<!--							--><?php //elseif ( 'order-number' === $column_id ) : ?>
+<!--								<a href="--><?php //echo esc_url( $order->get_view_order_url() ); ?><!--">-->
+<!--									--><?php //echo esc_html( _x( '#', 'hash before order number', 'woocommerce' ) . $order->get_order_number() ); ?>
+<!--								</a>-->
 
 							<?php elseif ( 'order-date' === $column_id ) : ?>
 								<time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
 
-							<?php elseif ( 'order-status' === $column_id ) : ?>
-								<?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
+<!--							--><?php //elseif ( 'order-status' === $column_id ) : ?>
+<!--								--><?php //echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
 
-							<?php elseif ( 'order-total' === $column_id ) : ?>
-								<?php
-								/* translators: 1: formatted order total 2: total order items */
-								echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
-								?>
+<!--							--><?php //elseif ( 'order-total' === $column_id ) : ?>
+<!--								--><?php
+//								/* translators: 1: formatted order total 2: total order items */
+//								echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
+//								?>
 
-							<?php elseif ( 'order-actions' === $column_id ) : ?>
-								<?php
-								$actions = wc_get_account_orders_actions( $order );
-
-								if ( ! empty( $actions ) ) {
-									foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
-										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
-									}
-								}
-								?>
-                            <?php elseif ( 'order-id' === $column_id ) : ?>
+<!--							--><?php //elseif ( 'order-actions' === $column_id ) : ?>
+<!--								--><?php
+//								$actions = wc_get_account_orders_actions( $order );
+//
+//								if ( ! empty( $actions ) ) {
+//									foreach ( $actions as $key => $action ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+//										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
+//									}
+//								}
+////								?>
+<!--                            --><?php //elseif ( 'order-id' === $column_id ) : ?>
+<!--                                --><?php
+//                                    $order_id = $order->get_order_number();
+//                                    echo '<span>'.$order_id.'</span>';
+//                                ?>
+                            <?php elseif ('product-quantity' === $column_id) : ?>
                                 <?php
-                                    $order_id = $order->get_order_number();
-                                    echo '<span>'.$order_id.'</span>';
+                                    echo esc_html($item_quantity);
                                 ?>
-                            <?php elseif ( 'order-product-ids' === $column_id ) : ?>
+                            <?php elseif ('product-photo' === $column_id) : ?>
                                 <?php
-                                    $order_items = $order->get_items();
-                                    $product_ids = array();
-                                    $item_quantity = array();
-                                    foreach ( $order_items as $item ) {
-                                        $item_quantity[] = $item->get_quantity( );
-                                        $product_name = $item->get_name();
-                                        $product_id = $item->get_product_id();
-                                        $product_ids[] = $product_id;
-                                        $product = wc_get_product($product_id);
-                                        $image = $product->get_image();
-                                        echo $image;
+                                    echo $product_image;
+                                ?>
+                            <?php elseif ('product-name' === $column_id) : ?>
+                                <?php
+                                    echo esc_html($product_name);
+                                ?>
+                            <?php elseif ('product-format' === $column_id) : ?>
+                                <?php
+                                    if ( $product -> is_type( 'variable' )) {
+                                        echo esc_html($variation_format);
                                     }
-                                    echo '<p>'.print_r($product_ids, true).'</p>';
-                                    echo '<p>'.print_r($item_quantity, true).'</p>';
-                                ?>
-                            <?php elseif ('order-item-quantity' === $column_id) : ?>
-                                <?php
-                                    //echo '<p>'.print_r($item_quantity, true).'</p>';
+                                    else
+                                        echo '';
                                 ?>
 							<?php endif; ?>
 						</td>
 					<?php endforeach; ?>
 				</tr>
 				<?php
-			}
+			} }
 			?>
 		</tbody>
 	</table>
-
+<?php echo 'Количество купленных продуктов: '.count($all_items);?>
 	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
 
 	<?php if ( 1 < $customer_orders->max_num_pages ) : ?>

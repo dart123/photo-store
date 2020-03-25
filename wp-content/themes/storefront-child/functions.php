@@ -172,16 +172,23 @@ function remove_links_my_account( $items ) {
 
 add_filter( 'woocommerce_account_menu_items', 'remove_links_my_account' );
 
+//Добавление колонок в таблицу в истории заказов
 function new_orders_columns( $columns = array() ) {
 
 //    // Hide the columns
 //    if( isset($columns['order-total']) ) {
 //        // Unsets the columns which you want to hide
-//        unset( $columns['order-number'] );
+    unset( $columns['order-number'] );
 //        unset( $columns['order-date'] );
-//        unset( $columns['order-status'] );
-//        unset( $columns['order-total'] );
-//        unset( $columns['order-actions'] );
+    unset( $columns['order-status'] );
+    unset( $columns['order-total'] );
+    unset( $columns['order-actions'] );
+
+    $columns['product-photo'] = 'Фото';
+    $columns['product-name'] = 'Товар';
+    $columns['product-quantity'] = 'Количество товара';
+    $columns['product-format'] = 'Формат';
+
 //    }
 
     // Add new columns
@@ -191,9 +198,8 @@ function new_orders_columns( $columns = array() ) {
 //    $columns['order-status'] = __( 'Estado de la reserva', 'Text Domain' );
 //    $columns['order-actions'] = __( '&nbsp;', 'Text Domain' );
 
-    $columns['order-id'] = 'ID заказа';
-    $columns['order-item-quantity'] = 'Количество товара';
-    $columns['order-product-ids'] = 'ID товаров заказа';
+//    $columns['order-id'] = 'ID заказа';
+//    $columns['order-product-ids'] = 'ID товаров заказа';
 
     return $columns;
 }

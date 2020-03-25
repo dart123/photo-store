@@ -1,0 +1,30 @@
+2020-03-25T12:41:07+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_variation_attributes() in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/myaccount/orders.php:104
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(251): include()
+#1 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3073): wc_get_template('myaccount/order...', Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): woocommerce_account_orders(1)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3022): do_action('woocommerce_acc...', '')
+#6 /home/a/a99953zd/photo-store/public_html/wp-i в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/myaccount/orders.php на строке 104
+
+2020-03-25T12:45:18+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/myaccount/orders.php:104
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(251): include()
+#1 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3073): wc_get_template('myaccount/order...', Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): woocommerce_account_orders(1)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3022): do_action('woocommerce_acc...', '')
+#6 /home/a/a99953zd/photo-store/public_html/wp-i в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/myaccount/orders.php на строке 104
+
+2020-03-25T12:53:03+00:00 CRITICAL Uncaught Error: Call to a member function get_variation_attributes() on bool in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/myaccount/orders.php:51
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(251): include()
+#1 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3073): wc_get_template('myaccount/order...', Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): woocommerce_account_orders(1)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3022): do_action('woocommerce_acc...', '')
+#6 /home/a/a99953zd/photo-store/public_html/wp-includes/cla в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/myaccount/orders.php на строке 51
+
