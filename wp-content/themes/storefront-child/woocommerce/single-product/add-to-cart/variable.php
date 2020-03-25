@@ -22,6 +22,8 @@ global $product;
 $attribute_keys  = array_keys( $attributes );
 $variations_json = wp_json_encode( $available_variations );
 $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_json ) : _wp_specialchars( $variations_json, ENT_QUOTES, 'UTF-8', true );
+$product_prices = $product->get_variation_prices()["price"];
+$variation_attr_price = array();
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
@@ -38,6 +40,14 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						<td class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></td>
 						<td class="value select-format">
 							<?php
+                            foreach ($options as $option) {
+                                foreach ($available_variations as $variation)
+                                    if (strpos($variation['attributes']['attribute_' . $attribute_name], $option) !== false ) {
+                                        $variation_attr_price[$option] = $product_prices[$variation['variation_id']];
+                                        break;
+                                    }
+                            }
+                            //var_dump($variation_attr_price);
 								wc_dropdown_variation_attribute_options(
 									array(
 										'options'   => $options,
@@ -52,7 +62,30 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+<script type="text/javascript">
+    //Делаем искусственный див, из которого потом будем назначать data-price селекту
+    if (jQuery('div.attr_prices').length === 0)
+    {
+        jQuery('.variations_form').append("<div style='display: none' class='attr_prices'></div>");
 
+        <?php
+            if (isset($variation_attr_price) && !empty($variation_attr_price))
+            {
+                foreach($variation_attr_price as $attr => $price): ?>
+                jQuery('.attr_prices').append("<span data-price='<?=$price?>' data-attr='<?=$attr?>'></span>");
+                <?php endforeach; ?>
+            <?php
+            }
+            ?>
+
+        //Добавляем значения цен для атрибутов в селект
+        jQuery('table.variations td.value select#pa_format option').not(':first-child').each(function () {
+            let attr = jQuery(this).val();
+            let price = jQuery(".attr_prices span[data-attr='" + attr + "']").attr('data-price');
+            jQuery(this).attr('data-price', price);
+        });
+    }
+</script>
 <!--		<div class="single_variation_wrap">-->
 			<?php
 				/**

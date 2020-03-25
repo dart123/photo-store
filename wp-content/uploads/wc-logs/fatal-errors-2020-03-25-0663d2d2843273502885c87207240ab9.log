@@ -28,3 +28,15 @@ Stack trace:
 #5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(3022): do_action('woocommerce_acc...', '')
 #6 /home/a/a99953zd/photo-store/public_html/wp-includes/cla в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/myaccount/orders.php на строке 51
 
+2020-03-25T21:01:28+00:00 CRITICAL syntax error, unexpected 'endforeach' (T_ENDFOREACH) в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/single-product/add-to-cart/variable.php на строке 67
+
+2020-03-25T21:01:56+00:00 CRITICAL Uncaught Error: Call to a member function get_attribute() on array in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/single-product/add-to-cart/variable.php:50
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(251): include()
+#1 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(1630): wc_get_template('single-product/...', Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): woocommerce_variable_add_to_cart('')
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#5 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-template-functions.php(1576): do_action('woocommerce_var...')
+#6 /home/a/a99953zd/photo-store/public_html/wp- в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/single-product/add-to-cart/variable.php на строке 50
+

@@ -138,6 +138,7 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 //add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 25);
 add_action('woocommerce_single_variation', 'woocommerce_template_single_price', 15);
 
+//Цена вариации
 remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10);
 
 add_action('woocommerce_before_cart', 'cart_title', 10);

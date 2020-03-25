@@ -93,7 +93,7 @@ function custom_checkout_fields($fields)
 {
     $fields['account']['account_username']['label'] = '№ Учреждения';
     $fields['account']['account_username']['placeholder'] = '№ Учреждения';
-    unset($fields['account']['account_username']);
+    //unset($fields['account']['account_username']);
 //    echo 'before: <pre>'.print_r($fields, true).'</pre>';
 //    unset($fields['billing_country']);
 //    unset($fields['billing_address_1']);

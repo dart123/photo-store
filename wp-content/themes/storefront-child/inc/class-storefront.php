@@ -331,6 +331,7 @@ if ( ! class_exists( 'Storefront' ) ) :
             //Custom scripts
             wp_enqueue_script( 'slick-min', get_template_directory_uri() . '/assets/js/custom/slick/slick.min.js', array('jquery'), $storefront_version );
             //wp_enqueue_script( 'custom-script-about', get_template_directory_uri() . '/assets/js/custom/about.js', array('jquery'), $storefront_version );
+            wp_enqueue_script( 'custom-script-single_product', get_template_directory_uri() . '/assets/js/custom/single_product.js', array('jquery'), $storefront_version );
             wp_enqueue_script( 'custom-script-catalog', get_template_directory_uri() . '/assets/js/custom/catalog.js', array('jquery'), $storefront_version );
             wp_enqueue_script( 'custom-script-profile', get_template_directory_uri() . '/assets/js/custom/profile.js', array('jquery'), $storefront_version );
             /***************************/

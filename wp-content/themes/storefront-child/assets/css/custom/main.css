@@ -99,3 +99,12 @@ ul.products li.product div.quantity {
   margin-right: 10px;
   background-image: url('../../images/custom/ok.svg');
 }
+@media screen and (max-width: 768px) {
+  ul.products .product.type-product {
+    width: 300px;
+    margin: 10px;
+  }
+  ul.products {
+    padding: 10px;
+  }
+}
