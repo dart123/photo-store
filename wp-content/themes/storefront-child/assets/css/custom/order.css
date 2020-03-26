@@ -1,8 +1,8 @@
 .checkout.woocommerce-checkout.order__form .form-row-wide {
-  width: calc((100% / 3) - 20px) !important;
+  width: calc((100% / 3) - 20px);
 }
 .checkout-text {
-  width: 60% !important;
+  width: 60%;
 }
 #customer_details .woocommerce-account-fields {
   padding: 20px;
@@ -70,9 +70,23 @@ button[name="woocommerce_checkout_place_order"] {
   }
   .order__form__bottom {
     flex-wrap: wrap;
+    justify-content: center;
+  }
+  order__form__bottom .checkout-text {
+    width: 50% !important;
   }
   .order__form__submit {
     margin: 20px 0 0 0;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .order__form__cont {
+
+  }
+  .checkout.woocommerce-checkout.order__form .form-row-wide {
+    width: 100%;
   }
 }
 

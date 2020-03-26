@@ -123,7 +123,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 			?>
 		</tbody>
 	</table>
-<?php echo 'Количество купленных продуктов: '.count($all_items);?>
+<?php //echo 'Количество купленных продуктов: '.count($all_items);?>
 	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
 
 	<?php if ( 1 < $customer_orders->max_num_pages ) : ?>

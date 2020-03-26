@@ -100,9 +100,29 @@ form.variations_form.cart p.price {
   font-family: 'Roboto';
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1009px) {
   .item__photos,
   .item__info {
     width: 100%;
+  }
+  .single-product div.product form.cart .quantity {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
+  form.variations_form.cart > * {
+    width: 100% !important;
+  }
+  form.variations_form.cart {
+    text-align: center;
+  }
+  form.variations_form.cart table.variations td.label, form.variations_form.cart table.variations td.select-format {
+    text-align: center;
+  }
+  form.variations_form.cart table.variations td.select-format::after {
+    right: 18%;
+  }
+  form.variations_form.cart p.price {
+    max-width: 100%;
   }
 }

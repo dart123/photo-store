@@ -100,6 +100,18 @@ tr.cart-subtotal {
   }
 }
 
-@media screen and (max-width: 600px) {
-
+@media screen and (max-width: 767px) {
+  .basket__table.cart.woocommerce-cart-form__contents td.product-remove {
+    border-top: none;
+  }
+  .basket__table.cart.woocommerce-cart-form__contents .product-thumbnail img {
+    margin: auto !important;
+    max-width: 100% !important;
+  }
+  .basket__table.cart.woocommerce-cart-form__contents tr td {
+    padding: 15px;
+  }
+  .basket__table.cart.woocommerce-cart-form__contents button.basket__button {
+    margin: 0;
+  }
 }

@@ -1,6 +1,54 @@
-/*.woocommerce-form-register.register p:nth-child(2) {*/
-/*  display: none;*/
-/*}*/
+/*Edit account */
+form.woocommerce-EditAccountForm.edit-account {
+  background-color: rgba(255,255,255,0.9);
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.44);
+  border-radius: 5px;
+}
+form.woocommerce-EditAccountForm.edit-account .woocommerce-form-row.form-row {
+  padding: 20px;
+}
+form.woocommerce-EditAccountForm.edit-account fieldset {
+  padding: 20px !important;
+  background: none;
+}
+form.woocommerce-EditAccountForm.edit-account fieldset legend {
+  background: none;
+}
+form.woocommerce-EditAccountForm.edit-account fieldset .woocommerce-form-row.form-row {
+  padding: 0 !important;
+}
+form.woocommerce-EditAccountForm.edit-account .woocommerce-form-row.form-row input {
+  padding: 10px;
+  border: solid 1px #C9BBC8;
+  border-radius: 5px;
+  background-color: white !important;
+}
+form.woocommerce-EditAccountForm.edit-account button[name="save_account_details"] {
+  background-color: #FFF !important;
+  color: #2458A4 !important;
+  border-color: #333333;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.44);
+}
+form.woocommerce-EditAccountForm.edit-account p:last-child {
+  padding: 20px;
+}
+table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders {
+  background-color: rgba(255,255,255,0.5) !important;
+  border-radius: 5px !important;
+}
+table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders th,
+table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td {
+  background-color: rgba(255,255,255,0.5) !important;
+  text-align: center;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,0.44) !important;
+  vertical-align: middle;
+  color: #2458A4 !important;
+  font-weight: 800 !important;
+}
+table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td time {
+  color: #2458A4 !important;
+  font-weight: 800 !important;
+}
 .woocommerce-MyAccount-navigation {
   float: none !important;
   width: 100% !important;
@@ -47,7 +95,7 @@
  .profile__history__table__cont {
    overflow: auto
  }
-.profile__history__table__cont img {
+.profile__history__table__cont img, .woocommerce-orders-table__cell.woocommerce-orders-table__cell-product-photo img {
   width: 80px;
   height: 80px;
 }
@@ -58,4 +106,22 @@
 }
 .profile__history__table__item > td:first-child {
   color: #68686A !important;
+}
+@media screen and (max-width: 820px) {
+  .woocommerce-MyAccount-navigation a.woocommerce-MyAccount-navigation-link {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .woocommerce-MyAccount-navigation a.woocommerce-MyAccount-navigation-link {
+    font-size: 12px;
+    height: 100% !important;
+  }
+  table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td.woocommerce-orders-table__cell-product-format {
+    box-shadow: none;
+    border-bottom: 2px solid black;
+  }
+  .woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td.woocommerce-orders-table__cell-product-photo img {
+    margin: auto;
+  }
 }

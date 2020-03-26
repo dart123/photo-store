@@ -11,9 +11,13 @@ function generate_attribute_url(el)
 }
 function get_product_price(el)
 {
+    let cart_btn = jQuery(this).parents('.main__item__cont').siblings('a.add_to_cart_button');
     let select = el.parents('.main__item__cont').siblings('.custom-select').find('select.attribute_select');
     let selected_option = select.find('option:selected').length > 0 ? select.find('option:selected') : select.find('option')[0];
-    let price = selected_option.data('price');
+    if (typeof selected_option !== 'undefined' && selected_option.length > 0)
+        var price = selected_option.data('price');
+    else
+        var price = cart_btn.data('base_price');
     return price;
 }
 
@@ -40,7 +44,8 @@ jQuery(document).ready(function(){
     //Устанавливаем правильную цену на все продукты при загрузке страницы
     jQuery('ul.products .product .main__item__price .woocommerce-Price-amount.amount').each(function(){
         jQuery(this).text(get_product_price(jQuery(this) ) );
-        jQuery(this).append("<span class='woocommerce-Price-currencySymbol'>₽</span>");
+        if (jQuery(this).parents('.main__item__cont').siblings('.custom-select').length > 0)
+            jQuery(this).append("<span class='woocommerce-Price-currencySymbol'>₽</span>");
     });
 
     jQuery('.attribute_select').each(function(index){
@@ -66,7 +71,7 @@ jQuery(document).ready(function(){
         //let current_price = price_el.clone().children().remove().end().text();
         let selected_option = jQuery(this).parents('.main__item__cont').siblings('.custom-select').find('.attribute_select option:selected');
 
-        if (selected_option.length > 0 && typeof selected_option !== 'undefined')
+        if (typeof selected_option !== 'undefined' && selected_option.length > 0)
             var new_price = selected_option.data('price') * jQuery(this).val();
         else
             var new_price = cart_btn.data('base_price') * jQuery(this).val();

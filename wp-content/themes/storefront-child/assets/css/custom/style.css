@@ -37,7 +37,7 @@ body {
 }
 
 .col-full {
-  height: 80px;
+  /*height: 80px;*/
 }
 .woocommerce-products-header {
   display: none;
