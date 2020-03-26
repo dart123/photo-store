@@ -1,0 +1,67 @@
+2020-03-26T19:39:21+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Term as array in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/content-product.php:37
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/template.php(724): require()
+#1 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(197): load_template('/home/a/a99953z...', false)
+#2 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/templates/archive-product.php(70): wc_get_template_part('content', 'product')
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/template-loader.php(98): include('/home/a/a99953z...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-blog-header.php(19): require_once('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/index.php(17): require('/home/a/a99953z...')
+#6 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/content-product.php на строке 37
+
+2020-03-26T19:58:25+00:00 CRITICAL Uncaught Error: Call to undefined function http_status_code() in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/content-single-product.php:38
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/template.php(724): require()
+#1 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/wc-core-functions.php(197): load_template('/home/a/a99953z...', false)
+#2 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/templates/single-product.php(37): wc_get_template_part('content', 'single-product')
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/template-loader.php(98): include('/home/a/a99953z...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-blog-header.php(19): require_once('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/index.php(17): require('/home/a/a99953z...')
+#6 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/woocommerce/content-single-product.php на строке 38
+
+2020-03-26T20:02:53+00:00 CRITICAL Uncaught Error: Call to a member function get_category_ids() on string in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/header.php:12
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/template.php(722): require_once()
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/template.php(671): load_template('/home/a/a99953z...', true)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/general-template.php(41): locate_template(Array, true)
+#3 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/templates/single-product.php(22): get_header('shop')
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/template-loader.php(98): include('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/wp-blog-header.php(19): require_once('/home/a/a99953z...')
+#6 /home/a/a99953zd/photo-store/public_html/index.php(17): require('/home/a/a99953z...')
+#7 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/header.php на строке 12
+
+2020-03-26T20:07:55+00:00 CRITICAL Uncaught Error: Call to a member function get_category_ids() on string in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php:207
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): sinlge_product_restriction('')
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/template-loader.php(13): do_action('template_redire...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-blog-header.php(19): require_once('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/index.php(17): require('/home/a/a99953z...')
+#6 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php на строке 207
+
+2020-03-26T21:36:42+00:00 CRITICAL Uncaught Error: Call to a member function get_category_ids() on string in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php:209
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): restrict_single_product('')
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/template-loader.php(13): do_action('template_redire...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-blog-header.php(19): require_once('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/index.php(17): require('/home/a/a99953z...')
+#6 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php на строке 209
+
+2020-03-26T21:56:48+00:00 CRITICAL Uncaught Error: Call to a member function get_category_ids() on string in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php:209
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): restrict_single_product('')
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/template-loader.php(13): do_action('template_redire...')
+#4 /home/a/a99953zd/photo-store/public_html/wp-blog-header.php(19): require_once('/home/a/a99953z...')
+#5 /home/a/a99953zd/photo-store/public_html/index.php(17): require('/home/a/a99953z...')
+#6 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php на строке 209
+

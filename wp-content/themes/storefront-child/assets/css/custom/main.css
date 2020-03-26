@@ -16,7 +16,13 @@
 ul.products .product.type-product {
   display: flex;
   flex-direction: column;
+  float:none !important;
+  clear: both !important;
+  /*margin-right: 60px !important;*/
 }
+/*ul.products .product.type-product.last {*/
+/*  margin-right: 60px !important;*/
+/*}*/
 .woocommerce-LoopProduct-link.woocommerce-loop-product__link {
   flex-grow: 1;
 }

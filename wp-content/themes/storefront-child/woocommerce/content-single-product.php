@@ -19,6 +19,27 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
+$cat_ids = $product->get_category_ids();
+$login = wp_get_current_user()->user_login;
+if ($login == 'admin')
+    $cat_to_find = 'Группа №1';
+elseif ($login == 'aaa')
+    $cat_to_find = 'Группа №2';
+$category_found = false;
+foreach ($cat_ids as $cat_id) {
+    $category = get_term_by('id', $cat_id, 'product_cat');
+    if ($category->name == $cat_to_find) {
+        $category_found = true;
+        break;
+    }
+}
+if (!$category_found) {
+    http_response_code(404);
+    get_template_part( 404 );
+//    $not_found_page = get_permalink( 350 );
+//    wp_redirect( $not_found_page );
+    exit();
+}
 /**
  * Hook: woocommerce_before_single_product.
  *
