@@ -20,17 +20,20 @@ defined( 'ABSPATH' ) || exit;
 global $product;
 
 $cat_ids = $product->get_category_ids();
-$login = wp_get_current_user()->user_login;
-if ($login == 'admin')
-    $cat_to_find = 'Группа №1';
-elseif ($login == 'aaa')
-    $cat_to_find = 'Группа №2';
+$user_group_num = get_user_meta(get_current_user_id(), 'group_number', true);
+//$login = wp_get_current_user()->user_login;
+//if ($login == 'admin')
+//    $cat_to_find = 'Группа №1';
+//elseif ($login == 'aaa')
+//    $cat_to_find = 'Группа №2';
 $category_found = false;
-foreach ($cat_ids as $cat_id) {
-    $category = get_term_by('id', $cat_id, 'product_cat');
-    if ($category->name == $cat_to_find) {
-        $category_found = true;
-        break;
+if (isset($user_group_num) && !empty($user_group_num)) {
+    foreach ($cat_ids as $cat_id) {
+        $category = get_term_by('id', $cat_id, 'product_cat');
+        if ($category->name == $user_group_num) {
+            $category_found = true;
+            break;
+        }
     }
 }
 if (!$category_found) {

@@ -50,7 +50,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 			<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-				<label for="username"><?php echo 'Название/номер группы';//esc_html_e( 'Username or email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+				<label for="username"><?php echo esc_html_e( 'Username or email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 				<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
 			</p>
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
@@ -91,11 +91,13 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_username"><?php echo 'Название/номер группы';//esc_html_e( 'Username', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+					<label for="reg_username"><?php esc_html_e( 'Username', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" autocomplete="username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
 				</p>
 
 			<?php endif; ?>
+
+            <?php do_action( 'woocommerce_register_form' ); ?>
 
 			<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 				<label for="reg_email"><?php esc_html_e( 'Email address', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
@@ -115,7 +117,7 @@ do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 			<?php endif; ?>
 
-			<?php do_action( 'woocommerce_register_form' ); ?>
+			<?php //do_action( 'woocommerce_register_form' ); ?>
 
 			<p class="woocommerce-FormRow form-row">
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>

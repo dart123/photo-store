@@ -1,6 +1,9 @@
 .checkout.woocommerce-checkout.order__form .form-row-wide {
   width: calc((100% / 3) - 20px);
 }
+#billing_phone_field, #billing_email_field {
+  width: calc(50% - 20px);
+}
 .checkout-text {
   width: 60%;
 }

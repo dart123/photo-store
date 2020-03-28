@@ -91,8 +91,8 @@ function woocommerce_template_product_description() {
 add_filter('woocommerce_checkout_fields', 'custom_checkout_fields');
 function custom_checkout_fields($fields)
 {
-    $fields['account']['account_username']['label'] = '№ Учреждения';
-    $fields['account']['account_username']['placeholder'] = '№ Учреждения';
+//    $fields['account']['account_username']['label'] = '№ Учреждения';
+//    $fields['account']['account_username']['placeholder'] = '№ Учреждения';
     //unset($fields['account']['account_username']);
 //    echo 'before: <pre>'.print_r($fields, true).'</pre>';
 //    unset($fields['billing_country']);
@@ -159,7 +159,7 @@ add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_
 function remove_links_my_account( $items ) {
     $new_items = $items;
     //var_dump($new_items);
-
+//var_dump(get_user_meta(get_current_user_id(), 'group_number', true));
     unset($new_items['downloads']);
     unset($new_items['edit-address']);
 
@@ -201,16 +201,43 @@ function woocommerce_non_registered_redirect() {
 }
 add_action('template_redirect', 'woocommerce_non_registered_redirect');
 
-//function register_form_fields() {
-//    return apply_filters( 'woocommerce_forms_field', array(
-//        'woocommerce_my_account_page' => array(
-//            'type'        => 'text',
-//            'label'       => 'Название/номер группы',
-//            'placeholder' => 'Название/номер группы',
-//            'required'    => true,
-//        ),
-//    ) );
-//}
+//Добавляем поле "номер группы" в форму регистрации
+function woocommerce_edit_my_account_page() {
+    return apply_filters( 'woocommerce_forms_field', array(
+        'group_number' => array(
+            'type'        => 'text',
+            'label'       => 'Название/номер группы',
+            'placeholder' => '',
+            'required'    => true,
+        ),
+    ) );
+}
+function edit_my_account_page_woocommerce() {
+    $fields = woocommerce_edit_my_account_page();
+
+    foreach ( $fields as $key => $field_args ) {
+        woocommerce_form_field( $key, $field_args );
+    }
+}
+add_action( 'woocommerce_register_form', 'edit_my_account_page_woocommerce', 15 );
+
+//Валидация поля "номер группы"
+function wooc_validate_extra_register_fields( $username, $email, $validation_errors ) {
+    if ( isset( $_POST['group_number'] ) && empty( $_POST['group_number'] ) ) {
+        $validation_errors->add( 'group_number_error', 'Номер группы является обязательным для заполнения!', 'woocommerce' );
+    }
+    return $validation_errors;
+}
+add_action( 'woocommerce_register_post', 'wooc_validate_extra_register_fields', 10, 3 );
+
+//Сохранение поля "номер группы" в базу данных
+function wooc_save_extra_register_fields( $customer_id ) {
+    if ( isset( $_POST['group_number'] ) ) {
+
+        $result = update_user_meta( $customer_id, 'group_number', sanitize_text_field( $_POST['group_number'] ) );
+    }
+}
+add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
 
 /**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.

@@ -23,6 +23,11 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
+    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+        <label for="account_first_name"><?php echo 'Название/номер группы';//esc_html_e( 'First name', 'woocommerce' ); ?>&nbsp;<!--<span class="required">*</span>--></label>
+        <input disabled type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="" id="group_name" value="<?php echo esc_attr( get_user_meta($user->ID, 'group_number', true) ); ?>" />
+    </p>
+
 	<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
 		<label for="account_first_name"><?php esc_html_e( 'First name', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
 		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" autocomplete="given-name" value="<?php echo esc_attr( $user->first_name ); ?>" />
