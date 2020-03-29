@@ -380,6 +380,19 @@ function woocommerce_register_redirect( $redirect ) {
 add_filter( 'woocommerce_registration_redirect', 'woocommerce_register_redirect' );
 
 /**
+ * Filer WooCommerce Flexslider options - Add Navigation Arrows
+ */
+function sf_update_woo_flexslider_options( $options ) {
+
+    $options['directionNav'] = true;
+    $options['controlNav'] = false;
+
+    return $options;
+}
+add_filter( 'woocommerce_single_product_carousel_options', 'sf_update_woo_flexslider_options' );
+
+
+/**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
  * https://github.com/woocommerce/theme-customisations
  */
