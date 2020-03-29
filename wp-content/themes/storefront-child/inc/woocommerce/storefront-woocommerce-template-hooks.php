@@ -149,6 +149,10 @@ remove_action('woocommerce_checkout_order_review', 'woocommerce_order_review', 1
 add_action('woocommerce_before_checkout_form', 'checkout_title', 15);
 
 add_action('woocommerce_before_account_navigation', 'account_title', 10);
+
+//Виджет корзины в хедере
+remove_action( 'woocommerce_widget_shopping_cart_total', 'woocommerce_widget_shopping_cart_subtotal', 10 );
+add_action('woocommerce_widget_shopping_cart_total', 'woocommerce_widget_shopping_cart_subtotal_custom', 10);
 //add_action('woocommerce_after_single_product_summary', 'woocommerce_template_single_price', 10);
 
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);

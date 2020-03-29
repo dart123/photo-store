@@ -77,6 +77,7 @@ table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td
 }
 .profile__buttons {
   display: flex;
+  justify-content: center;
 }
 .profile__buttons > button, .profile__buttons > a {
   width: 250px;
@@ -123,5 +124,23 @@ table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td
   }
   .woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td.woocommerce-orders-table__cell-product-photo img {
     margin: auto;
+  }
+}
+@media screen and (max-width: 550px) {
+  .woocommerce-MyAccount-navigation a.woocommerce-MyAccount-navigation-link {
+    height: 60px !important;
+  }
+  .woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--customer-logout {
+    padding-top: 4.5% !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .woocommerce-MyAccount-content .woocommerce-message.woocommerce-message--info.woocommerce-info {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .woocommerce-MyAccount-content .woocommerce-message.woocommerce-message--info.woocommerce-info {
+    font-size: 10px;
   }
 }

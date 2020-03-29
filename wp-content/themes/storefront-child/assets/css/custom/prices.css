@@ -28,11 +28,12 @@ prices__list tr, .prices__list td {
   display: inline-block;
 }
 .prices__list td:first-child {
-  float: left;
+  /*float: left;*/
 }
 .prices__list td:last-child {
   text-align: right;
   font-weight: 800;
+  float:right;
 }
 @media screen and (max-width: 470px) {
   

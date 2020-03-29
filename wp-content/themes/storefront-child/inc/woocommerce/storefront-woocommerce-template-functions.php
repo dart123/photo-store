@@ -962,6 +962,9 @@ function checkout_title() {
 function account_title() {
     echo '<h1 class="content__title" style="font-size: 35px; font-weight: bold">Профиль</h1>';
 }
+function woocommerce_widget_shopping_cart_subtotal_custom() {
+    echo '<strong>' . 'Итого' . ':</strong> ' . WC()->cart->get_cart_subtotal(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+}
 //function custom_login_logo() {
 //    echo '<div class="login__top">
 //            <img class="login__logo" src="/wp-content/themes/storefront-child/assets/images/custom/logo@2x.png">

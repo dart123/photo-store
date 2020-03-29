@@ -84,3 +84,29 @@
 .login__form__message.ok:before {
   background-image: url('../../images/custom/message-ok.svg');
 }
+.tab-login .woocommerce-LostPassword.lost_password {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px)
+{
+  .login__title > *:first-child {
+    font-size: 23px;
+  }
+  .login__title > *:last-child {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 400px)
+{
+  .login__logo {
+    width: 100px;
+    height: 120px;
+  }
+  .login__form__switch__item.register-link {
+    width: 60%;
+  }
+  .login__form__switch__item.login-link {
+    width: 40%;
+  }
+}

@@ -22,6 +22,11 @@ function get_product_price(el)
 }
 
 jQuery(document).ready(function(){
+    // if ( /^((?!chrome|android).)*safari/i.test(navigator.userAgent))
+    // {
+    //     jQuery('ul.products li.product.last').css('margin-right', '60px !important');
+    // }
+
     //Открытие и закрытие мобильного меню
     var i = 0;
     jQuery('#header .header__menu__item-img.bkg-img.menu').click(function(){

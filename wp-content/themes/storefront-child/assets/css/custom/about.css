@@ -1,3 +1,6 @@
+.about__reviews h2, .about__certs h2 {
+  text-align: center;
+}
 .about__reviews__item .user_info {
   float: left;
 }
@@ -17,9 +20,9 @@
   height: 300px;
 }
 .about_fact_description {
-  height: 220px;
+  /*height: 220px;*/
   line-height: 1.2;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 .about__info__cont {
   width: calc(100% - 320px);
@@ -153,6 +156,8 @@
 }
 .about__certs__item img {
   height: 400px;
+  background: white;
+  border: 1px solid black;
 }
 
 .about__prev,
@@ -185,13 +190,21 @@
   .about__info {
     display: block;
   }
+  .about__info__img {
+    margin-left: auto;
+    margin-right: auto;
+  }
   .about__info__cont {
     width: 100%;
   }
   .about__facts__item {
     width: calc(50% - 40px);
   }
-
+  .about__facts__item img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   .about__reviews__item__cont {
     flex-wrap: wrap;
   }
@@ -200,5 +213,42 @@
   }
   .about__reviews__item__cont > *:not(:last-child) {
     margin-bottom: 10px;
+  }
+  .about__certs__item img {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (max-width: 850px) {
+  about__info__img {
+    width: 250px;
+    height: 260px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .about__info__img {
+    width: 150px;
+    height: 180px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .about__reviews__item.slick-slide {
+    height: auto;
+  }
+  .about__photos {
+    height: 300px;
+  }
+  .about__photos img {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .about__photos {
+    height: 200px;
+  }
+  .about__photos img {
+    height: 200px;
+    margin-top: auto;
   }
 }

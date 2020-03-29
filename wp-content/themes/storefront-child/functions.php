@@ -162,6 +162,7 @@ function remove_links_my_account( $items ) {
 //var_dump(get_user_meta(get_current_user_id(), 'group_number', true));
     unset($new_items['downloads']);
     unset($new_items['edit-address']);
+    unset($new_items['dashboard']);
 
     $new_items['orders'] = 'История покупок';
     $new_items['edit-account'] = 'Личные данные';
@@ -238,6 +239,145 @@ function wooc_save_extra_register_fields( $customer_id ) {
     }
 }
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
+
+//Отображение поля "номер гпуппы" в админке
+function wordpress_show_extra_profile_fields( $user )
+{
+    $group_number = get_user_meta($user->ID, 'group_number', true);
+    ?>
+    <h3><?php echo 'Название/номер группы'; ?></h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="group_num">Название/номер группы</label></th>
+            <td>
+                <input type="text"
+                       required
+                       step="1"
+                       id="group_num"
+                       name="group_num"
+                       value="<?php echo esc_attr($group_number); ?>"
+                       class="regular-text"
+                />
+            </td>
+        </tr>
+    </table>
+
+<?php
+
+}
+add_action( 'edit_user_profile', 'wordpress_show_extra_profile_fields' );
+
+//Валидация номера группы в админке
+function wordpress_user_profile_update_errors( $errors, $update, $user ) {
+    if ( empty( $_POST['group_num'] ) ) {
+        $errors->add( 'group_num_error', 'Пожалуйста, введите номер группы.');
+    }
+}
+add_action( 'user_profile_update_errors', 'wordpress_user_profile_update_errors', 10, 3 );
+
+//Сохранение номера группы в бд
+function wordpress_update_profile_fields( $user_id ) {
+    if ( ! current_user_can( 'edit_user', $user_id ) ) {
+        return false;
+    }
+
+    if ( ! empty( $_POST['group_num'] ) ) {
+        update_user_meta( $user_id, 'group_number', $_POST['group_num'] );
+    }
+}
+add_action( 'edit_user_profile_update', 'wordpress_update_profile_fields' );
+
+function wordpress_get_current_role()
+{
+    if (!isset(wp_get_current_user()->roles) || empty(wp_get_current_user()->roles))
+        return false;
+    $roles = wp_get_current_user()->roles;
+    $current_role = array_shift($roles);
+    //var_dump($current_role);
+    return $current_role;
+}
+//Функция, проверяющая, можно ли отображать данный товар для данного пользователя
+function is_product_allowed($user, $product)
+{
+    $cat_ids = $product->get_category_ids();
+    $user_group_num = get_user_meta($user->ID, 'group_number', true);
+    $user_role = wordpress_get_current_role();
+    $is_allowed = false;
+    if ($user_role && !empty($user_role))
+    {
+        if ($user_role == 'administrator')
+            return true;
+        elseif ($user_role == 'kindergarten_admin')
+        {
+            if (isset($user_group_num) && !empty($user_group_num))
+            {
+                //Получаем категорию группы пользователя по его названию группы
+                $user_group = get_term_by('slug', $user_group_num, 'product_cat');
+                //ID Родителя группы пользователя
+                $user_group_ancestors = get_ancestors( $user_group->term_id, 'product_cat' );
+                $kindergarten_id = array_shift($user_group_ancestors);
+
+                //Категория детского сада
+                $kindergarten_category = get_term_by('id', $kindergarten_id, 'product_cat');
+
+                //Проходимся по всем категориям данного продукта
+                foreach ($cat_ids as $cat_id)
+                {
+                    //Родители категории данного продукта
+                    $product_cat_ancestors = get_ancestors( $cat_id, 'product_cat' );
+                    //Проход по всем родителям
+                    foreach ($product_cat_ancestors as $ancestor)
+                    {
+                        //Получаем категорию родителя
+                        $ancestor_category = get_term_by('id', $ancestor, 'product_cat');
+                        //Сравниваем имена родителей (имена дет.садов)
+                        if ($ancestor_category->name == $kindergarten_category->name)
+                            return true;
+                    }
+
+                }
+                return $is_allowed;
+            }
+            else
+                return false;
+        }
+        else //Любая другая роль
+        {
+            if (isset($user_group_num) && !empty($user_group_num)) {
+                foreach ($cat_ids as $cat_id) //Проходимся по всем категориям товара
+                {
+                    $category = get_term_by('id', $cat_id, 'product_cat'); //Получаем объект категории
+                    if ($category->name == $user_group_num)
+                    {
+                        return true;
+                    }
+                }
+                return $is_allowed;
+            }
+            else
+                return false;
+        }
+    }
+}
+//Редирект после логина
+function woocommerce_login_redirect( $redirect) {
+    $redirect_page_id = url_to_postid( $redirect );
+    $checkout_page_id = wc_get_page_id( 'checkout' );
+
+    if( $redirect_page_id == $checkout_page_id ) {
+        return $redirect;
+    }
+
+    return wc_get_page_permalink( 'shop' );
+}
+
+add_filter( 'woocommerce_login_redirect', 'woocommerce_login_redirect' );
+
+//Редирект после регистрации
+function woocommerce_register_redirect( $redirect ) {
+    return wc_get_page_permalink( 'shop' );
+}
+add_filter( 'woocommerce_registration_redirect', 'woocommerce_register_redirect' );
 
 /**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.

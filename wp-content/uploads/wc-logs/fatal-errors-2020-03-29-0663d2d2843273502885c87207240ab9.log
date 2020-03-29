@@ -1,0 +1,9 @@
+2020-03-29T10:31:56+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function woocommerce_login_redirect(), 1 passed in /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php on line 290 and exactly 2 expected in /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php:363
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(290): woocommerce_login_redirect('/profile/')
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(206): WP_Hook->apply_filters('/profile/', Array)
+#2 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woocommerce/includes/class-wc-form-handler.php(1024): apply_filters('woocommerce_log...', '/profile/', Object(WP_User))
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): WC_Form_Handler::process_login('')
+#4 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters(NULL, Array)
+#5 /home/a/a99953zd/photo-store/public_html/wp-includes/p в /home/a/a99953zd/photo-store/public_html/wp-content/themes/storefront-child/functions.php на строке 363
+

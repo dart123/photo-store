@@ -97,4 +97,8 @@
   .contacts__info__cont > * {
     margin-right: 10px;
   }
+  .contacts__info__socials {
+    display: flex;
+    justify-content: center;
+  }
 }

@@ -382,11 +382,14 @@ button.input, .woocommerce-form-login__submit, .woocommerce-form-register__submi
 .mobile-menu-ul li {
   margin-left: 26px;
   margin-bottom: 20px;
+  padding-left: 20%;
 }
 .mobile-menu-ul a
 {
   /*display: inline-block;*/
-  font: Bold  13px/14px Comfortaa;
+  /*font: Bold  13px/14px Comfortaa;*/
+  font-weight: bold;
+  font-size: 14px;
   color: #2E2A5C;
 }
 .mobile-menu-ul li:hover
