@@ -1,15 +1,47 @@
 .contacts__cont {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 .contacts__info .whatsapp {
   float: left;
 }
-.contacts__cont > * {
+/*.contacts__cont > * {*/
+/*  width: calc(50% - 10px);*/
+/*}*/
+.contacts__cont .contacts__form, .contacts__cont .contacts__info {
   width: calc(50% - 10px);
 }
+.contacts__form textarea {
+  resize: none !important;
+}
+.contacts__form input[type="text"], .contacts__form input[type="tel"], .contacts__form input[type="email"],
+  .contacts__form textarea {
+  width: 100%;
+  padding: 10px;
+  border: solid 1px #C9BBC8;
+  border-radius: 5px;
+  height: 42px;
+  background-color: #FFF;
+}
+.contacts__form input[type="text"]:focus, .contacts__form input[type="tel"]:focus, .contacts__form input[type="email"]:focus,
+.contacts__form textarea:focus {
+  background-color: white;
+}
+.contacts__form input[type="submit"] {
+  width: 100%;
+  background-color: #2458A4;
+  color: #FFF;
+  font-weight: 800;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.contacts__form label {
+  color: #747474;
+}
+
 .contacts__form {
   padding: 20px;
   background-color: #FFF;
@@ -83,7 +115,7 @@
 
 @media screen and (max-width: 1000px) {
   .contacts__cont > * {
-    width: 100%;
+    width: 100% !important;
   }
   .contacts__info {
     text-align: center;

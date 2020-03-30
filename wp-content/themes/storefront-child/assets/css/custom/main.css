@@ -112,5 +112,6 @@ ul.products li.product div.quantity {
   }
   ul.products {
     padding: 10px;
+    justify-content: center;
   }
 }

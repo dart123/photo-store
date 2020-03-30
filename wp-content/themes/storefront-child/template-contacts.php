@@ -15,23 +15,24 @@ $requisites = get_field('requisites');
 <div class="contacts__cont">
     <div class="contacts__form">
         <h3>Напишите нам</h3>
-        <form>
-            <div class="contacts__form__cont">
-                <div>
-                    <label class="input__label" for="input-name">Ваше имя</label>
-                    <input type="text" id="input-name" class="input">
-                </div>
-                <div>
-                    <label class="input__label" for="input-phone">Телефон для связи</label>
-                    <input type="text" id="input-phone" class="input"/>
-                </div>
-            </div>
-
-            <label class="input__label" for="input-message">Сообщение</label>
-            <textarea id="input-message" class="input"></textarea>
-
-            <input type="submit" value="ОТПРАВИТЬ" class="input"/>
-        </form>
+        <?php echo do_shortcode( '[contact-form-7 id="357" title="Contact form 1"]'); ?>
+<!--        <form>-->
+<!--            <div class="contacts__form__cont">-->
+<!--                <div>-->
+<!--                    <label class="input__label" for="input-name">Ваше имя</label>-->
+<!--                    <input type="text" id="input-name" class="input">-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <label class="input__label" for="input-phone">Телефон для связи</label>-->
+<!--                    <input type="text" id="input-phone" class="input"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--            <label class="input__label" for="input-message">Сообщение</label>-->
+<!--            <textarea id="input-message" class="input"></textarea>-->
+<!---->
+<!--            <input type="submit" value="ОТПРАВИТЬ" class="input"/>-->
+<!--        </form>-->
     </div>
     <div class="contacts__info">
         <div class="contacts__info__socials">

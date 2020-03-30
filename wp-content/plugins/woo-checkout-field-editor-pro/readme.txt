@@ -4,7 +4,7 @@ Donate link: https://themehigh.com/
 Tags: checkout field editor, woocommerce checkout field editor, checkout manager, woocommerce checkout manager, checkout field customizer, checkout form editor, checkout form customizer, checkout, WooCommerce checkout, checkout form designer, woocommerce checkout fields, woocommerce checkout addons
 Requires at least: 4.9
 Tested up to: 5.3
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,9 @@ Yes. There is a button 'reset to default fields' to go back to the WooCommerce d
 8. Newly added field
 
 == Changelog ==
+= 1.4.2 =
+* WooCommerce compatible version updated.
+
 = 1.4.1 =
 * Fixed the issue of showing option value instead of option text in order details page. 
 * WooCommerce compatible version updated.
