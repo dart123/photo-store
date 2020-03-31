@@ -90,9 +90,20 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <div class="about__reviews__item__rate">
-                                    <img src="/wp-content/themes/storefront-child/assets/images/custom/rate-star.svg"/><img src="/wp-content/themes/storefront-child/assets/images/custom/rate-star.svg"/><img src="/wp-content/themes/storefront-child/assets/images/custom/rate-star.svg"/><img src="/wp-content/themes/storefront-child/assets/images/custom/rate-star.svg"/><img src="/wp-content/themes/storefront-child/assets/images/custom/rate-star.svg"/>
-                                </div>
+                                <?php if (!empty($review['review_rate'])): ?>
+                                    <div class="about__reviews__item__rate">
+                                        <?php
+                                        $rate = (int)$review['review_rate'];
+                                        for ($i=1; $i<=5; $i++)
+                                        {
+                                            if ($i <= $rate)
+                                                echo '<img src="/wp-content/themes/storefront-child/assets/images/custom/rate-star.svg"/>';
+                                            else
+                                                echo '<img src="/wp-content/themes/storefront-child/assets/images/custom/star.svg"/>';
+                                        }
+                                        ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <div class="about__reviews__item__text"><?=$review['review_text']?></div>
                         </div>

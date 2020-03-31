@@ -98,7 +98,8 @@
   position: relative;
 }
 .about__reviews__item {
-  background-color: #FFF;
+  /*background-color: #FFF;*/
+  background-color: lightblue;
   border-radius: 5px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   width: 500px;
@@ -153,6 +154,8 @@
 .about__certs__item {
   display: inline-block;
   text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .about__certs__item img {
   height: 400px;

@@ -5,7 +5,7 @@
   overflow: hidden;
   margin-top: 50px;
 }
-prices__list tr, .prices__list td {
+.prices__list tr, .prices__list td {
   background-color: transparent !important;
 }
 .prices__list td, .prices__list th {
@@ -36,5 +36,7 @@ prices__list tr, .prices__list td {
   float:right;
 }
 @media screen and (max-width: 470px) {
-  
+  .prices__list tr > td:first-child {
+    word-wrap: normal;
+  }
 }

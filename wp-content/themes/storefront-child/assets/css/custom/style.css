@@ -421,3 +421,6 @@ button.input, .woocommerce-form-login__submit, .woocommerce-form-register__submi
 /*  background: #1A1526 0% 0% no-repeat padding-box;*/
 /*  opacity: 0.32;*/
 /*}*/
+.woocommerce-order .woocommerce-table--custom-fields.shop_table.custom-fields {
+  display: none !important;
+}
