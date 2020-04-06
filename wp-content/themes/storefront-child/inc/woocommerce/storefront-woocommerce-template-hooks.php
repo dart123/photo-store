@@ -153,6 +153,18 @@ add_action('woocommerce_before_account_navigation', 'account_title', 10);
 //Виджет корзины в хедере
 remove_action( 'woocommerce_widget_shopping_cart_total', 'woocommerce_widget_shopping_cart_subtotal', 10 );
 add_action('woocommerce_widget_shopping_cart_total', 'woocommerce_widget_shopping_cart_subtotal_custom', 10);
+
+//Описание в single product
+//add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 20 );
+
+//Переносим изображение single product под название товара
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+
+//add_action('woocommerce_single_product_summary', 'woocommerce_template_loop_product_thumbnail', 10);
+add_action('woocommerce_single_product_summary', 'woocommerce_show_product_images', 10);
+/****************************************************************/
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+
 //add_action('woocommerce_after_single_product_summary', 'woocommerce_template_single_price', 10);
 
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);

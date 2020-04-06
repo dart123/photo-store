@@ -1,0 +1,112 @@
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Date: 2020-04-06 18:30:10
+Wordpress version 5.3.2; Woocommerce version: 4.0.0
+Request: https://3dsec.sberbank.ru/payment/rest/register.do: Array
+(
+    [userName] => 
+    [password] => 
+    [amount] => 430000
+    [language] => ru
+    [returnUrl] => http://photo-store.a99953zd.beget.tech?wc-api=WC_RBSPAYMENT&rbspayment=result&order_id=380&wc-callb=callback_function
+    [jsonParams] => {"CMS:":"Wordpress 5.3.2 + woocommerce version: 4.0.0","Module-Version: ":"3.2.2"}
+    [orderNumber] => 380_1
+)
+Response: {"errorCode":"5","errorMessage":"Доступ запрещён"}
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Date: 2020-04-06 18:59:38
+Wordpress version 5.3.2; Woocommerce version: 4.0.0
+Request: https://3dsec.sberbank.ru/payment/rest/register.do: Array
+(
+    [userName] => 
+    [password] => 
+    [amount] => 430000
+    [language] => ru
+    [returnUrl] => http://photo-store.a99953zd.beget.tech?wc-api=WC_RBSPAYMENT&rbspayment=result&order_id=381&wc-callb=callback_function
+    [jsonParams] => {"CMS:":"Wordpress 5.3.2 + woocommerce version: 4.0.0","Module-Version: ":"3.2.2"}
+    [orderNumber] => 381_1
+)
+Response: {"errorCode":"5","errorMessage":"Доступ запрещён"}
+
+args[returnUrl]: http://photo-store.a99953zd.beget.tech?wc-api=WC_RBSPAYMENT&rbspayment=result&order_id=382&wc-callb=callback_function
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Date: 2020-04-06 19:12:38
+Wordpress version 5.3.2; Woocommerce version: 4.0.0
+Request: https://3dsec.sberbank.ru/payment/rest/register.do: Array
+(
+    [userName] => 
+    [password] => 
+    [amount] => 430000
+    [language] => ru
+    [returnUrl] => http://photo-store.a99953zd.beget.tech?wc-api=WC_RBSPAYMENT&rbspayment=result&order_id=382&wc-callb=callback_function
+    [jsonParams] => {"CMS:":"Wordpress 5.3.2 + woocommerce version: 4.0.0","Module-Version: ":"3.2.2"}
+    [orderNumber] => 382_1
+)
+Response: {"errorCode":"5","errorMessage":"Доступ запрещён"}
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Date: 2020-04-06 19:18:59
+Wordpress version 5.3.2; Woocommerce version: 4.0.0
+Request: https://3dsec.sberbank.ru/payment/rest/register.do: Array
+(
+    [userName] => 
+    [password] => 
+    [amount] => 430000
+    [language] => ru
+    [returnUrl] => http://photo-store.a99953zd.beget.tech?wc-api=WC_RBSPAYMENT&rbspayment=result&order_id=382&wc-callb=callback_function
+    [jsonParams] => {"CMS:":"Wordpress 5.3.2 + woocommerce version: 4.0.0","Module-Version: ":"3.2.2"}
+    [orderNumber] => 382_1
+)
+Response: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+    <title>Out of Service</title>
+    <META content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+
+        #distance {
+            width: 1px;
+            height: 50%;
+            margin-bottom: -5em; /* half of container's height */
+            float: left;
+        }
+
+        #container {
+            margin: 0 auto;
+            position: relative; /* puts container in front of distance */
+            text-align: left;
+            height: 10em;
+            width: 45em;
+            clear: left;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div id="distance"></div>
+<div id="container">
+    <h1>Out of service/Сервис временно остановлен</h1>
+
+    <p>Please press "Check" button below is a short while</p>
+
+    <p>Нажмите кнопку "проверить" через некоторое время</p>
+    <p class="center"><input type="button" value="Проверить/Check" onClick="window.location.reload()"></p>
+</div>
+</body>
+</html>
+

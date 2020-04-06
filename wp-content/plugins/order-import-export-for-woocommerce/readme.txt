@@ -3,8 +3,8 @@ Contributors: webtoffee
 Donate link: https://www.webtoffee.com/plugins/
 Tags: order export, order import, woocommerce export orders, woocommerce import orders, export orders, import orders, order, export, import, woocommerce, csv, coupon, coupon export, coupon import, woocommerce export coupon , woocommerce import coupon , export coupons, import coupons, woocommerce coupon generator
 Requires at least: 3.0.1
-Tested up to: 5.3.2
-Stable tag: 1.6.2
+Tested up to: 5.4
+Stable tag: 1.6.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -21,7 +21,7 @@ This is a perfect tool if you are migrating an existing shop on a different eCom
  &#128312; Import Coupons from CSV file.
  &#128312; Export Subscription Orders to CSV file(Premium Feature).
  &#128312; Import Subscription Orders from CSV file(Premium Feature).
- &#128312; Tested OK with WooCommerce 4.0.0
+ &#128312; Tested OK with WooCommerce 4.0.1
  &#128312; Tested OK with PHP 7.3.5
 
 <blockquote>
@@ -115,6 +115,8 @@ By default, admin and store manager are given access to export orders from your 
 
 == Changelog ==
 
+= 1.6.3 =
+* Tested OK with WP 5.4 
 = 1.6.2 =
 * Bug Fix:- Paid date and Completed date not importing.
 * Tested OK with WC 4.0.0 
@@ -282,4 +284,3 @@ By default, admin and store manager are given access to export orders from your 
 * Export /Import WooCommerce Orders.
 
 == Upgrade Notice ==
-

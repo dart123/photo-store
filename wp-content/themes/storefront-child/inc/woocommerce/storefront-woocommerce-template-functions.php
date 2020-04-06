@@ -965,6 +965,13 @@ function account_title() {
 function woocommerce_widget_shopping_cart_subtotal_custom() {
     echo '<strong>' . 'Итого' . ':</strong> ' . WC()->cart->get_cart_subtotal(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
+function woocommerce_show_main_product_image() {
+    global $product;
+    echo '<img src="'.wp_get_attachment_url( $product->get_image_id() ).'" />';
+
+    //$image_size = apply_filters( 'single_product_archive_thumbnail_size', $size );
+    //return $product ? $product->get_image( $image_size ) : '';
+}
 //function custom_login_logo() {
 //    echo '<div class="login__top">
 //            <img class="login__logo" src="/wp-content/themes/storefront-child/assets/images/custom/logo@2x.png">

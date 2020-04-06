@@ -115,8 +115,6 @@ function custom_checkout_fields($fields)
     return $fields;
 }
 
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 20 );
-
 //Убрать способы оплаты со страницы оформления заказа
 //add_filter('woocommerce_cart_needs_payment', '__return_false');
 
@@ -240,7 +238,7 @@ function wooc_save_extra_register_fields( $customer_id ) {
 }
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields' );
 
-//Отображение поля "номер гпуппы" в админке
+//Отображение поля "номер группы" в админке
 function wordpress_show_extra_profile_fields( $user )
 {
     $group_number = get_user_meta($user->ID, 'group_number', true);
@@ -391,6 +389,12 @@ function sf_update_woo_flexslider_options( $options ) {
 }
 add_filter( 'woocommerce_single_product_carousel_options', 'sf_update_woo_flexslider_options' );
 
+//function remove_slider_theme_support() {
+//    remove_theme_support( 'wc-product-gallery-zoom' );
+//    remove_theme_support( 'wc-product-gallery-lightbox' );
+//    remove_theme_support( 'wc-product-gallery-slider' );
+//}
+//add_action( 'wp', 'remove_slider_theme_support', 99 );
 
 /**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.

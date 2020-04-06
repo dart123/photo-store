@@ -81,6 +81,10 @@ button[name="woocommerce_checkout_place_order"] {
   .order__form__submit {
     margin: 20px 0 0 0;
   }
+  #order_review {
+    margin-top: 30px;
+    width: 100% !important;
+  }
 
 }
 
@@ -96,5 +100,10 @@ button[name="woocommerce_checkout_place_order"] {
 @media screen and (max-width: 600px) {
   .order__form__cont > div {
     width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  #place_order {
+    word-wrap: normal;
   }
 }

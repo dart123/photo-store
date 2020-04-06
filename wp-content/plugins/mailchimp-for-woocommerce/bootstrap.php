@@ -87,7 +87,7 @@ function mailchimp_environment_variables() {
     return (object) array(
         'repo' => 'master',
         'environment' => 'production', // staging or production
-        'version' => '2.3.5',
+        'version' => '2.3.6',
         'php_version' => phpversion(),
         'wp_version' => (empty($wp_version) ? 'Unknown' : $wp_version),
         'wc_version' => function_exists('WC') ? WC()->version : null,
@@ -1040,13 +1040,12 @@ function mailchimp_update_member_with_double_opt_in(MailChimp_WooCommerce_Order 
     }
 }
 
-
 // call server to update comm status
 function mailchimp_update_communication_status() {
     $plugin_admin = MailChimp_WooCommerce_Admin::instance();
     $original_opt = $plugin_admin->getData('comm.opt',0);
     $admin_email = $plugin_admin->getOptions()['admin_email'];
-    
+
     $plugin_admin->mailchimp_set_communications_status_on_server($original_opt, $admin_email);
 
 }
@@ -1057,7 +1056,7 @@ function mailchimp_remove_communication_status() {
     $original_opt = $plugin_admin->getData('comm.opt',0);
     $admin_email = $plugin_admin->getOptions()['admin_email'];
     $remove = true;
-    
+
     $plugin_admin->mailchimp_set_communications_status_on_server($original_opt, $admin_email, $remove);
 }
 
@@ -1066,7 +1065,7 @@ function mailchimp_settings_errors() {
     $settings_errors = get_settings_errors();
     $notices_html = '';
     foreach ($settings_errors as $notices) {
-        $notices_html .= '<div id="setting-error-'. $notices['code'].'" class="notice notice-'. $notices['type'].' inline is-dismissible"><p>' . $notices['message'] . '</p></div>';    
+        $notices_html .= '<div id="setting-error-'. $notices['code'].'" class="notice notice-'. $notices['type'].' inline is-dismissible"><p>' . $notices['message'] . '</p></div>';
     }
     return $notices_html;
 }
