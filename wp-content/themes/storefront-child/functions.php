@@ -181,6 +181,10 @@ function new_orders_columns( $columns = array() ) {
     unset( $columns['order-total'] );
     unset( $columns['order-actions'] );
 
+    $user_role = wordpress_get_current_role();
+    if ($user_role == 'kindergarten_admin' || $user_role == 'administrator')
+        $columns['order-user'] = 'Пользователь';
+
     $columns['product-photo'] = 'Фото';
     $columns['product-name'] = 'Товар';
     $columns['product-quantity'] = 'Количество товара';
@@ -294,6 +298,23 @@ function wordpress_get_current_role()
     //var_dump($current_role);
     return $current_role;
 }
+function get_kindergarten_cat_from_group_num($group_num)
+{
+    if (isset($group_num) && !empty($group_num)) {
+        //Получаем категорию группы пользователя по его названию группы
+        $user_group = get_term_by('slug', $group_num, 'product_cat');
+        //ID Родителя группы пользователя
+        $user_group_ancestors = get_ancestors($user_group->term_id, 'product_cat');
+        $kindergarten_id = array_shift($user_group_ancestors);
+
+        //Категория детского сада
+        $kindergarten_category = get_term_by('id', $kindergarten_id, 'product_cat');
+    }
+    if (isset($kindergarten_category) && !empty($kindergarten_category))
+        return $kindergarten_category;
+    else
+        return false;
+}
 //Функция, проверяющая, можно ли отображать данный товар для данного пользователя
 function is_product_allowed($user, $product)
 {
@@ -309,14 +330,7 @@ function is_product_allowed($user, $product)
         {
             if (isset($user_group_num) && !empty($user_group_num))
             {
-                //Получаем категорию группы пользователя по его названию группы
-                $user_group = get_term_by('slug', $user_group_num, 'product_cat');
-                //ID Родителя группы пользователя
-                $user_group_ancestors = get_ancestors( $user_group->term_id, 'product_cat' );
-                $kindergarten_id = array_shift($user_group_ancestors);
-
-                //Категория детского сада
-                $kindergarten_category = get_term_by('id', $kindergarten_id, 'product_cat');
+                $kindergarten_category = get_kindergarten_cat_from_group_num($user_group_num);
 
                 //Проходимся по всем категориям данного продукта
                 foreach ($cat_ids as $cat_id)

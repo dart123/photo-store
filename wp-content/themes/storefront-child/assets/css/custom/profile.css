@@ -99,6 +99,8 @@ table.woocommerce-orders-table.woocommerce-MyAccount-orders.my_account_orders td
 .profile__history__table__cont img, .woocommerce-orders-table__cell.woocommerce-orders-table__cell-product-photo img {
   width: 80px;
   height: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profile__history__table__item > td {
