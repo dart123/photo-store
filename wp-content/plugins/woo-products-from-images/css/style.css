@@ -1,0 +1,11 @@
+.prod_generation_main {
+    background: white !important;
+}
+.image-preview-wrapper {
+    display: flex;
+}
+.image-preview {
+    width: 150px;
+    margin-left:15px;
+    margin-right: 15px;
+}

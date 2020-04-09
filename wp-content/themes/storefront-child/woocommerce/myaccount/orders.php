@@ -198,19 +198,19 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		</tbody>
 	</table>
 <?php echo 'Количество купленных товаров: '.$item_amount;?>
-	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
-
-	<?php if ( 1 < $customer_orders->max_num_pages/*ceil($item_amount / 10)*/ ) : ?>
-		<div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
-			<?php if ( 1 !== $current_page ) : ?>
-				<a class="woocommerce-button woocommerce-button--previous woocommerce-Button woocommerce-Button--previous button" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?>"><?php esc_html_e( 'Previous', 'woocommerce' ); ?></a>
-			<?php endif; ?>
-
-			<?php if ( intval($customer_orders->max_num_pages)/*ceil($item_amount / 10) )*/ !== $current_page ) : ?>
-				<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button" href="<?php echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?>"><?php esc_html_e( 'Next', 'woocommerce' ); ?></a>
-			<?php endif; ?>
-		</div>
-	<?php endif; ?>
+<!--	--><?php //do_action( 'woocommerce_before_account_orders_pagination' ); ?>
+<!---->
+<!--	--><?php //if ( 1 < $customer_orders->max_num_pages/*ceil($item_amount / 10)*/ ) : ?>
+<!--		<div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">-->
+<!--			--><?php //if ( 1 !== $current_page ) : ?>
+<!--				<a class="woocommerce-button woocommerce-button--previous woocommerce-Button woocommerce-Button--previous button" href="--><?php //echo esc_url( wc_get_endpoint_url( 'orders', $current_page - 1 ) ); ?><!--">--><?php //esc_html_e( 'Previous', 'woocommerce' ); ?><!--</a>-->
+<!--			--><?php //endif; ?>
+<!---->
+<!--			--><?php //if ( intval($customer_orders->max_num_pages)/*ceil($item_amount / 10) )*/ !== $current_page ) : ?>
+<!--				<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button" href="--><?php //echo esc_url( wc_get_endpoint_url( 'orders', $current_page + 1 ) ); ?><!--">--><?php //esc_html_e( 'Next', 'woocommerce' ); ?><!--</a>-->
+<!--			--><?php //endif; ?>
+<!--		</div>-->
+<!--	--><?php //endif; ?>
 
 <?php //else : ?>
 <!--	<div class="woocommerce-message woocommerce-message--info woocommerce-Message woocommerce-Message--info woocommerce-info">-->

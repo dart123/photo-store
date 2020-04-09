@@ -35,6 +35,7 @@
  * @param mixed  ...$args Optional further parameters, typically starting with an object ID.
  * @return array Actual capabilities for meta capability.
  */
+include_once(ABSPATH . 'wp-includes/pluggable.php');
 function map_meta_cap( $cap, $user_id, ...$args ) {
 	$caps = array();
 
