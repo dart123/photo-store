@@ -1,37 +1,58 @@
 <?php
 /**
- * Plugin Name: Advanced product generation for WooCommerce
+ * Plugin Name: Product generation for WooCommerce
  * Plugin URI:
- * Description: Generate WooCommerce products from images and more
+ * Description: Generate products from images and more
+ * Author: Alex Zemyansky
+ * Author URI:
  * Version: 1.0
- * Author: Alexander Zemyansky
- * Author URI: http://www.mywebsite.com
+ *
+ * License: GNU General Public License v3.0
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * @package     woo-products-from-images
+ * @author      Alex Zemyansky
+ * @Category    Plugin
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
-function plugin_page_output()
+
+function plugin_main_page()
 {
-    //echo plugins_url('style.css', __FILE__);
     include('admin-screen.php');
 }
-function plugin_scripts()
-{
-    wp_enqueue_media(); //everything needed for javascript media APIs
-    wp_enqueue_style('woocommerce-products-from-img-style', plugins_url('css/style.css', __FILE__), '', '1.0.0', 'screen');
-
-    wp_enqueue_script('woocommerce-products-from-img-script', plugins_url('js/script.js', __FILE__), array('jquery'), '1.0.0');
-}
-add_action( 'admin_enqueue_scripts', 'plugin_scripts', 10 );
 
 function plugin_menu()
 {
-    add_submenu_page( 'woocommerce', 'Загрузка товаров', 'Загрузка товаров',
-        'manage_woocommerce', 'woo-product-generation', 'plugin_page_output');
+    add_submenu_page('woocommerce', 'Генерация товаров', 'Генерация товаров', 'manage_woocommerce', 'woo_products_from_images', 'plugin_main_page');
 }
-add_action( 'admin_menu', 'plugin_menu' );
+add_action('admin_menu', 'plugin_menu');
 
-//function save_attachment_id()
-//{
-//    if ( isset( $_POST['submit_image_selector'] ) && isset( $_POST['image_attachment_id'] ) ) {
-//        set_transient('media_selector_attachment_url', $_POST['image_attachment_id'], 10 * 1);
-//    }
-//}
-//add_action('init','save_attachment_id');
+function plugin_scripts($hook)
+{
+    if( 'woo-products-from-images.php' != $hook )
+        return;
+    wp_enqueue_style('woo-products-from-img-style', plugins_url('css/style.css', __FILE__), '', '1.0.0', 'screen');
+    wp_enqueue_script( 'woo-products-from-img-script', plugins_url('js/script.js', __FILE__), array('jquery'), '1.0.0' );
+
+    $generate_products_nonce = wp_create_nonce( 'generate_products_example' );
+    wp_localize_script( 'woo-products-from-img-script', 'my_ajax_obj', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'nonce'    => $generate_products_nonce,
+    ) );
+}
+add_action('admin_enqueue_scripts', 'plugin_scripts');
+
+function generate_products()
+{
+    if (isset($_POST) && !empty($_POST))
+    {
+        if (isset($_POST['product_ids']) && !empty($_POST['product_ids']))
+        {
+            echo json_encode($_POST['product_ids']);
+        }
+//        else
+//            echo 'false';
+    }
+}
+add_action('init', 'generate_products');
+//$title_nonce = wp_create_nonce( 'title_example' );

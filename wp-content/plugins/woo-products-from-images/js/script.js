@@ -34,11 +34,13 @@
         file_frame.on( 'select', function() {
             // We set multiple to false so only get one image from the uploader
             attachments = file_frame.state().get('selection').toJSON();
+
+            jQuery('.image-preview-wrapper').empty();
             //console.log(attachments);
             // Do something with attachment.id and/or attachment.url here
             jQuery.each(attachments, function(index, attachment) {
                 jQuery('.image-preview-wrapper')
-                    .append("<img class='image-preview' src='' style='max-height: 100px; max-width: 150px;'>");
+                    .append("<img class='image-preview' src=''>");
                 jQuery('.image-preview-wrapper .image-preview:last-child').data('id', attachment.id).attr('src', attachment.url);
             });
             // jQuery( '#image-preview' ).attr( 'src', attachments.url ).css( 'width', 'auto' );
@@ -52,6 +54,46 @@
         file_frame.open();
     });
 
+    jQuery('form#product_generation_form').submit(function(event) {
+        event.preventDefault();
+        let form = jQuery(this);
+        let product_ids = [];
+        //form.find('input.image_attachment_id').remove();
+
+            // form.append("<input type='hidden' name='product_ids[" + index + "]' class='image_attachment_id' value='" +
+            //         jQuery(this).data('id') + "'>");
+        //console.log(jQuery('input.image_attachment_id'));
+        if (jQuery('input.image_attachment_id').length === 0) {
+            return;
+        }
+        else
+        {
+            jQuery('.image-preview-wrapper .image-preview').each(function(index, el)
+            {
+                product_ids.push( jQuery(this).data('id') );
+            };
+        }
+        var formValues = form.serialize();
+        console.log("ajax: " + ajaxurl);
+        jQuery.post(
+            //location.protocol+"//"+location.hostname+"/wp-content/plugins/woo-products-from-images/woo-products-from-images.php",
+            my_ajax_obj.ajax_url,
+            {
+                _ajax_nonce: my_ajax_obj.nonce,
+                fields: formValues,
+                action: "generate_products",
+                product_ids: JSON.stringify(product_ids)
+            },
+
+            function(response)
+            {
+                console.log(JSON.parse(response));
+            }
+        );
+
+        //jQuery('form#product_generation_form'
+
+    });
     // Restore the main ID when the add media button is pressed
     jQuery( 'a.add_media' ).on( 'click', function() {
         wp.media.model.settings.post.id = wp_media_post_id;

@@ -1,11 +1,23 @@
 .prod_generation_main {
     background: white !important;
+    text-align: center;
 }
 .image-preview-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 .image-preview {
-    width: 150px;
+    width: 200px;
+    height: 150px;
     margin-left:15px;
     margin-right: 15px;
+}
+#upload_image_button {
+    width: 30% !important;
+    margin-bottom: 50px;
 }
