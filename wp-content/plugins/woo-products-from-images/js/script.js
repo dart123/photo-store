@@ -63,18 +63,17 @@
             // form.append("<input type='hidden' name='product_ids[" + index + "]' class='image_attachment_id' value='" +
             //         jQuery(this).data('id') + "'>");
         //console.log(jQuery('input.image_attachment_id'));
-        if (jQuery('input.image_attachment_id').length === 0) {
-            return;
-        }
-        else
-        {
-            jQuery('.image-preview-wrapper .image-preview').each(function(index, el)
-            {
-                product_ids.push( jQuery(this).data('id') );
-            };
-        }
+        // if (jQuery('input.image_attachment_id').length === 0) {
+        //     return;
+        // }
+        //else
+        //{
+        jQuery('.image-preview-wrapper .image-preview').each(function(index, el) {
+            product_ids.push( jQuery(this).data('id') );
+        });
+        //}
         var formValues = form.serialize();
-        console.log("ajax: " + ajaxurl);
+
         jQuery.post(
             //location.protocol+"//"+location.hostname+"/wp-content/plugins/woo-products-from-images/woo-products-from-images.php",
             my_ajax_obj.ajax_url,
@@ -90,9 +89,7 @@
                 console.log(JSON.parse(response));
             }
         );
-
-        //jQuery('form#product_generation_form'
-
+        
     });
     // Restore the main ID when the add media button is pressed
     jQuery( 'a.add_media' ).on( 'click', function() {
