@@ -204,6 +204,10 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
         array_push($product_attributes, $variation['attribute']);
     }
 
+//    $ref_vars = $reference->get_available_variations();
+//    foreach ($ref_vars as $ref_var)
+//        return print_r($ref_var, true);
+
     if ( $images->have_posts() ) :
 
         // after that any other function call will fail
@@ -231,16 +235,16 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
             //Create the attribute object
             $attribute = new WC_Product_Attribute();
             //pa_size tax id
-            $attribute->set_id( 1 );
+            $attribute->set_id( 0 );
             //pa_size slug
-            $attribute->set_name( 'pa_format' );
+            $attribute->set_name( 'format' );
             //Set terms slugs
 
             $attribute->set_position( 0 );
             //If enabled
-            $attribute->set_visible( true );
+            $attribute->set_visible( 1 );
             //If we are going to use attribute in order to generate variations
-            $attribute->set_variation( true );
+            $attribute->set_variation( 1 );
 
             $attribute->set_options( $product_attributes );
 
@@ -269,8 +273,10 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
                 // Get an instance of the WC_Product_Variation object
                 $variation_prod = new WC_Product_Variation( $variation_id );
 
-                $variation_prod->set_attributes(array('attribute_pa_format' => $variation['attribute']));
-                //return print_r($variation_prod->get_variation_attributes(), true);
+                $variation_prod->set_parent_id($product->get_id());
+
+                $variation_prod->set_attributes(array('format' => $variation['attribute']));
+                //return print_r($variation_prod, true);
                 //$variation_prod->set_attribute_summary('pa_format:'.$variation['attribute']);
                 //$variation_prod->set_variation_attributes(array('pa_format' => $variation['attribute']));
                 //$variation_prod->set_attributes(array('id' => 1, 'option' => $variation['attribute']));
