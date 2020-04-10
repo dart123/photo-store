@@ -58,8 +58,8 @@
         event.preventDefault();
         let form = jQuery(this);
         let product_ids = [];
-        //form.find('input.image_attachment_id').remove();
 
+        //form.find('input.image_attachment_id').remove();
             // form.append("<input type='hidden' name='product_ids[" + index + "]' class='image_attachment_id' value='" +
             //         jQuery(this).data('id') + "'>");
         //console.log(jQuery('input.image_attachment_id'));
@@ -68,6 +68,7 @@
         // }
         //else
         //{
+
         jQuery('.image-preview-wrapper .image-preview').each(function(index, el) {
             product_ids.push( jQuery(this).data('id') );
         });
@@ -96,3 +97,11 @@
         wp.media.model.settings.post.id = wp_media_post_id;
     });
 });
+function generation_add_category()
+{
+
+}
+function generation_add_variation()
+{
+    
+}
