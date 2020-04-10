@@ -81,15 +81,15 @@
                 _ajax_nonce: my_ajax_obj.nonce,
                 fields: formValues,
                 action: "generate_products",
-                product_ids: JSON.stringify(product_ids)
+                product_ids: product_ids
             },
 
             function(response)
             {
-                console.log(JSON.parse(response));
+                console.log(response);
+                //console.log(JSON.parse(response));
             }
         );
-        
     });
     // Restore the main ID when the add media button is pressed
     jQuery( 'a.add_media' ).on( 'click', function() {

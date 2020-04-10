@@ -49,9 +49,9 @@ function generate_products_ajax_handler()
     if (isset($_POST['product_ids']) && !empty($_POST['product_ids']))
     {
         // REPLACE THE 0 IN FUNCTION PARAM BELOW WITH YOUR REFERENCE PRODUCT ID
-        //
-        //wpa_convert_images_to_products( 0 );
-        echo json_encode($_POST['product_ids']);
+        //echo print_r($_POST['product_ids'], true);
+        echo wpa_convert_images_to_products( 334 , $_POST['product_ids']);
+        //echo json_encode($_POST['product_ids']);
     }
     else
         echo 'false';
@@ -59,10 +59,10 @@ function generate_products_ajax_handler()
 }
 add_action( 'wp_ajax_generate_products', 'generate_products_ajax_handler' );
 
-function wpa_convert_images_to_products($ref_id = 0, $skip_images = array() ) {
+function wpa_convert_images_to_products($ref_id = 0, $image_ids = array() ) {
 
     // following line ensure that present function is run once
-    if (  get_transient('convert_images_to_products_done') ) return;
+    //if (  get_transient('convert_images_to_products_done') ) return;
 
     //try to remove php limits in execution time an memory
     @set_time_limit (0);
@@ -71,133 +71,148 @@ function wpa_convert_images_to_products($ref_id = 0, $skip_images = array() ) {
     if ( ! post_type_exists( 'product' ) || ! $ref_id )
         wp_die('Reference post id is not valid or product post type is not registered.');
 
-    $reference = get_post($ref_id);
+    $reference = new WC_Product_Variable($ref_id);//get_post($ref_id);
 
     if ( ! $reference )
         wp_die('Given reference post id is not valid.');
 
-    $ref_thumb = get_post_thumbnail_id( $ref_id );
-    if ( ! is_int($ref_thumb) ) $ref_thumb = null;
-
-    // get reference attributes
-    $product_vars = get_object_vars($reference);
-    unset($product_vars['ID']);
-    unset($product_vars['post_date']);
-    unset($product_vars['post_date_gmt']);
-    unset($product_vars['post_modified']);
-    unset($product_vars['post_modified_gmt']);
-    unset($product_vars['comment_count']);
-
-    // get reference custom fields
-    $ref_fields = get_post_custom( $ref_id );
-
-    // get reference taxonomies
-    $all_tax = get_object_taxonomies('product');
-    if ( ! empty($all_tax) ) {
-        $ref_tax = wp_get_object_terms( $ref_id, $all_tax, array('fields' => 'all') );
-    }
-
-    // skip reference thumbnail and images passed as second param in function
-    $skip_images = array_merge( (array)$skip_images, array($ref_thumb) );
-
+//    $ref_thumb = get_post_thumbnail_id( $ref_id );
+//    if ( ! is_int($ref_thumb) ) $ref_thumb = null;
+//
+//    // get reference attributes
+//    $product_vars = get_object_vars($reference);
+//    unset($product_vars['ID']);
+//    unset($product_vars['post_date']);
+//    unset($product_vars['post_date_gmt']);
+//    unset($product_vars['post_modified']);
+//    unset($product_vars['post_modified_gmt']);
+//    unset($product_vars['comment_count']);
+//
+//    // get reference custom fields
+//    $ref_fields = get_post_custom( $ref_id );
+//
+//    // get reference taxonomies
+//    $all_tax = get_object_taxonomies('product');
+//    if ( ! empty($all_tax) ) {
+//        $ref_tax = wp_get_object_terms( $ref_id, $all_tax, array('fields' => 'all') );
+//    }
+//
+//    //Возможно удалить (у нас уже есть массив id изображений, из которых нужно создать товары)//////////////////////
+//
+//    // skip reference thumbnail and images passed as second param in function
+//    $skip_images = array_merge( (array)$skip_images, array($ref_thumb) );
+//
     $args = array(
-        'post__not_in' => $skip_images,
+        //'post__not_in' => $skip_images,
+        'post__in' => $image_ids,
+        //'cache_results' => '0',
         'post_type' => 'attachment',
         'post_mime_type' => 'image',
         'posts_per_page' => '-1',
         'post_status' => 'inherit',
     );
     $images = new WP_Query( $args );
-
+//
     $errors = array();
-
+//
     // start loop through images
 
     if ( $images->have_posts() ) :
 
         // after that any other function call will fail
-        set_transient( 'convert_images_to_products_done', 1);
+        //set_transient( 'convert_images_to_products_done', 1);
 
         global $wpdb;
+
+        $result = array();
 
         while( $images->have_posts() ) :
             $images->the_post();
             global $post;
             $image = $post->ID;
-            $excerpt = get_the_excerpt();
-            if ( empty($excerpt) ) $excerpt = get_the_title();
+//            $excerpt = get_the_excerpt();
+//            if ( empty($excerpt) ) $excerpt = get_the_title();
+            $title = get_the_title();
+            //array_push($result, $title);
 
-            $product_vars['post_title'] = get_the_title();
-            $product_vars['post_excerpt'] = $excerpt;
-            $product = wp_insert_post( $product_vars );
-
-            if ( intval($product) ) {
-
-                // insert custom fields
-                if ( ! empty($ref_fields) ) {
-                    $meta_insert_query = "INSERT INTO $wpdb->postmeta ";
-            $meta_insert_query .= "(meta_key, meta_value) VALUES ";
-                    $values = '';
-                    foreach ( $ref_fields as $key => $array ) {
-                        if ( $key != '_thumbnail_id' ) {
-                            foreach ( $array as $value ) {
-                                if ( $values != '' ) $values .= ', ';
-                                $values .= $wpdb->prepare( '(%s, %s)', $key, maybe_serialize($value) );
-                            }
-                        }
-                    }
-                    if ( $values != '' ) {
-                        $meta_insert_query .= $values;
-                        if ( ! $wpdb->query( $meta_insert_query ) ) {
-                            $error = 'Fail on inserting meta query for product ';
-                            $error .= $product . '. Query: ' . $meta_insert_query;
-                            $errors[] =  $error;
-                        }
-                    }
-                }
-
-                // insert taxonomies
-                if ( ! empty($ref_tax) && ! is_wp_error( $ref_tax ) ) {
-                    $taxonomies = array();
-                    foreach ( $ref_tax as $term ) {
-                        if ( ! isset($taxonomies[$term->taxonomy]) )
-                            $taxonomies[$term->taxonomy] = array();
-                        $taxonomies[$term->taxonomy][] = $term->slug;
-                    }
-                    foreach ( $taxonomies as $tax => $terms ) {
-                        $set_tax = wp_set_post_terms( $product, $terms, $tax, false );
-                        if ( ! is_array($set_tax) ) {
-                            $error =  'Fail on insert terms of taxonomy ';
-                            $error .=  $tax . ' for product' . $product;
-                            if ( is_string( $set_tax ) )
-                                $error .= ' First offending term ' . $set_tax;
-                            if ( is_wp_error($set_tax) )
-                                $error .= ' Error: ' . $set_tax->get_error_message();
-                            $errors[] = $error;
-                        }
-                    }
-                }
-
-                if ( ! set_post_thumbnail( $product, $image ) ) {
-                    $error = 'Set thumbnail failed for product ';
-                    $error .= $product . ' image ' . $image;
-                    $errors[] = $error;
-                }
-            } else {
-                $errors[] = 'Insert post failed for image with id ' . $image;
-            }
-
+            $product = new WC_Product_Variable();
+            $product->set_name($title);
+            $product->set_image_id($image);
+            $product->save();
+//
+//            $product_vars['post_title'] = get_the_title();
+//            $product_vars['post_excerpt'] = $excerpt;
+//            $product = wp_insert_post( $product_vars );
+//
+//            if ( intval($product) ) {
+//
+//                // insert custom fields
+//                if ( ! empty($ref_fields) ) {
+//                    $meta_insert_query = "INSERT INTO $wpdb->postmeta ";
+//            $meta_insert_query .= "(meta_key, meta_value) VALUES ";
+//                    $values = '';
+//                    foreach ( $ref_fields as $key => $array ) {
+//                        if ( $key != '_thumbnail_id' ) {
+//                            foreach ( $array as $value ) {
+//                                if ( $values != '' ) $values .= ', ';
+//                                $values .= $wpdb->prepare( '(%s, %s)', $key, maybe_serialize($value) );
+//                            }
+//                        }
+//                    }
+//                    if ( $values != '' ) {
+//                        $meta_insert_query .= $values;
+//                        if ( ! $wpdb->query( $meta_insert_query ) ) {
+//                            $error = 'Fail on inserting meta query for product ';
+//                            $error .= $product . '. Query: ' . $meta_insert_query;
+//                            $errors[] =  $error;
+//                        }
+//                    }
+//                }
+//
+//                // insert taxonomies
+//                if ( ! empty($ref_tax) && ! is_wp_error( $ref_tax ) ) {
+//                    $taxonomies = array();
+//                    foreach ( $ref_tax as $term ) {
+//                        if ( ! isset($taxonomies[$term->taxonomy]) )
+//                            $taxonomies[$term->taxonomy] = array();
+//                        $taxonomies[$term->taxonomy][] = $term->slug;
+//                    }
+//                    foreach ( $taxonomies as $tax => $terms ) {
+//                        $set_tax = wp_set_post_terms( $product, $terms, $tax, false );
+//                        if ( ! is_array($set_tax) ) {
+//                            $error =  'Fail on insert terms of taxonomy ';
+//                            $error .=  $tax . ' for product' . $product;
+//                            if ( is_string( $set_tax ) )
+//                                $error .= ' First offending term ' . $set_tax;
+//                            if ( is_wp_error($set_tax) )
+//                                $error .= ' Error: ' . $set_tax->get_error_message();
+//                            $errors[] = $error;
+//                        }
+//                    }
+//                }
+//
+//                if ( ! set_post_thumbnail( $product, $image ) ) {
+//                    $error = 'Set thumbnail failed for product ';
+//                    $error .= $product . ' image ' . $image;
+//                    $errors[] = $error;
+//                }
+//            } else {
+//                $errors[] = 'Insert post failed for image with id ' . $image;
+//            }
+//
         endwhile;
-
+//
     else :
 
-        wp_die('You have no media.');
+        return 'no_media';
 
     endif;
-
+//
     wp_reset_postdata();
 
-    if ( ! empty($errors) )
-        wp_die('<p>' . implode('</p><p>', $errors) . '</p>');
+    return 'true';
+//
+//    if ( ! empty($errors) )
+//        wp_die('<p>' . implode('</p><p>', $errors) . '</p>');
 
 }
