@@ -1,2 +1,22 @@
 2020-04-10T11:10:43+00:00 CRITICAL syntax error, unexpected end of file в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/admin-screen.php на строке 19
 
+2020-04-10T13:46:23+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/admin-screen.php:39
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(21): include()
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): plugin_main_page('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin.php(254): do_action('woocommerce_pag...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/admin-screen.php на строке 39
+
+2020-04-10T13:46:49+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/admin-screen.php:39
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(21): include()
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): plugin_main_page('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin.php(254): do_action('woocommerce_pag...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/admin-screen.php на строке 39
+

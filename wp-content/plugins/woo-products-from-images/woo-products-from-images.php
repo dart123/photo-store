@@ -46,11 +46,18 @@ add_action('admin_enqueue_scripts', 'plugin_scripts');
 function generate_products_ajax_handler()
 {
     check_ajax_referer('generate_products_example');
-    if (isset($_POST['product_ids']) && !empty($_POST['product_ids']))
+
+    $params = array();
+    parse_str($_POST['fields'], $params);
+
+    if (isset($_POST['product_ids']) && !empty($_POST['product_ids']) &&
+        isset($params['product_category']) && !empty($params['product_category']) &&
+        isset($params['product_variation']) && !empty($params['product_variation']) )
     {
         // REPLACE THE 0 IN FUNCTION PARAM BELOW WITH YOUR REFERENCE PRODUCT ID
         //echo print_r($_POST['product_ids'], true);
-        echo wpa_convert_images_to_products( 334 , $_POST['product_ids']);
+        echo wpa_convert_images_to_products( 10 ,
+            $_POST['product_ids'], $params['product_category'], $params['product_variation']);
         //echo json_encode($_POST['product_ids']);
     }
     else
@@ -111,10 +118,17 @@ function woo_get_all_subcategories()
 
 function woo_get_all_attributes()
 {
-    
+    global $wpdb;
+    if ( get_transient('all_prod_attributes') )
+        return get_transient('all_prod_attributes');
+
+    $attribute_vals = $wpdb->get_results( "SELECT b.name, b.slug FROM $wpdb->term_taxonomy a INNER JOIN $wpdb->terms b ON a.term_id=b.term_id ".
+                    "WHERE taxonomy='pa_format'");
+    set_transient('all_prod_attributes', $attribute_vals, HOUR_IN_SECONDS / 2);
+    return $attribute_vals;
 }
 
-function wpa_convert_images_to_products($ref_id = 0, $image_ids = array() ) {
+function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $variations ) {
 
     // following line ensure that present function is run once
     //if (  get_transient('convert_images_to_products_done') ) return;
@@ -177,7 +191,7 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids = array() ) {
         // after that any other function call will fail
         //set_transient( 'convert_images_to_products_done', 1);
 
-        global $wpdb;
+        //global $wpdb;
 
         $result = array();
 
@@ -193,6 +207,31 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids = array() ) {
             $product = new WC_Product_Variable();
             $product->set_name($title);
             $product->set_image_id($image);
+            $product->set_category_ids(array($category));
+
+            $i = 1;
+            foreach ($variations as $variation)
+            {
+                $variation_post = array(
+                    'post_title'  => $product->get_name(),
+                    'post_name'   => 'product-'.$product->get_id().'-variation-'.$i,
+                    'post_status' => 'publish',
+                    'post_parent' => $product->get_id(),
+                    'post_type'   => 'product_variation',
+                    'guid'        => $product->get_permalink()
+                );
+                // Creating the product variation
+                $variation_id = wp_insert_post( $variation_post );
+                $i++;
+
+                // Get an instance of the WC_Product_Variation object
+                $variation_prod = new WC_Product_Variation( $variation_id );
+
+                $variation_prod->set_attributes(array('pa_format' => $variation['attribute']));
+                $variation_prod->set_price($variation['price']);
+                $variation_prod->set_image_id($image);
+            }
+
             $product->save();
 //
 //            $product_vars['post_title'] = get_the_title();

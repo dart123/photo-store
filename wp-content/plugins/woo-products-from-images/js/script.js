@@ -69,11 +69,23 @@
         //else
         //{
 
+        if (jQuery('.image-preview-wrapper .image-preview').length === 0)
+            return;
+
         jQuery('.image-preview-wrapper .image-preview').each(function(index, el) {
             product_ids.push( jQuery(this).data('id') );
         });
         //}
         var formValues = form.serialize();
+        //console.log(formValues);
+
+        // let product_variations = [];
+        //
+        // jQuery('.product_variation_item').each(function(index, el) {
+        //     let price = jQuery(this).find('input[type="text"]').val();
+        //     let attribute = jQuery(this).find('select').val();
+        //     product_variations.push({price: price, attribute: attribute});
+        // });
 
         jQuery.post(
             //location.protocol+"//"+location.hostname+"/wp-content/plugins/woo-products-from-images/woo-products-from-images.php",
@@ -96,12 +108,39 @@
     jQuery( 'a.add_media' ).on( 'click', function() {
         wp.media.model.settings.post.id = wp_media_post_id;
     });
-});
-function generation_add_category()
-{
 
-}
+    //Adding variations
+     jQuery('#add_variation_btn').click(function() {
+         generation_add_variation();
+     });
+
+});
+
 function generation_add_variation()
 {
-    
+    let variation_wrapper = jQuery('.product_variation_wrapper');
+    let variation_amount = variation_wrapper.children().length;
+    let cur_index = variation_amount + 1;
+    let attribute_options = jQuery('.product_variation_item:first-child > select > option');
+    let attributes = [];
+    jQuery.each(attribute_options, function(index, el) {
+        attributes.push({slug: jQuery(el).val(), name: jQuery(el).text()});
+    });
+    variation_wrapper.append(
+        '<div class="product_variation_item">\n' +
+            '<h3>Вариация ' + cur_index + '</h3>\n' +
+            '<label for="product_variation_price_' + cur_index + '">Цена вариации ' + cur_index + '</label>\n' +
+            '<input id="product_variation_price_' + cur_index + '" required type="text" name="product_variation[' + variation_amount + '][price]">\n' +
+            '<label for="product_variation_attribute_' + cur_index + '">Атрибут вариации ' + cur_index + '</label>\n' +
+            '<select id="product_variation_attribute_' + cur_index + '" required name="product_variation[' + variation_amount + '][attribute]">\n' +
+            '</select>\n' +
+        '</div>');
+
+    let new_variation_select = jQuery('.product_variation_item:last-child > select');
+
+    jQuery.each(attributes, function(index, attribute) {
+        new_variation_select.append('<option value="' + attribute.slug + '">' + attribute.name + '</option>');
+    });
+
+    //console.log(attributes);
 }
