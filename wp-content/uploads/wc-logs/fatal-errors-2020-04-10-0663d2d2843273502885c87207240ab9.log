@@ -20,3 +20,63 @@ Stack trace:
 #5 {main}
   thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/admin-screen.php на строке 39
 
+2020-04-10T17:11:50+00:00 CRITICAL Uncaught Error: Call to a member function save() on array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php:273
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(60): wpa_convert_images_to_products(10, Array, '32', Array)
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): generate_products_ajax_handler('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_generat...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php на строке 273
+
+2020-04-10T17:12:28+00:00 CRITICAL Uncaught Error: Call to a member function save() on array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php:273
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(60): wpa_convert_images_to_products(10, Array, '32', Array)
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): generate_products_ajax_handler('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_generat...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php на строке 273
+
+2020-04-10T17:19:45+00:00 CRITICAL Uncaught Error: Call to a member function save() on array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php:276
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(60): wpa_convert_images_to_products(10, Array, '32', Array)
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): generate_products_ajax_handler('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_generat...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php на строке 276
+
+2020-04-10T17:25:01+00:00 CRITICAL Uncaught Error: Call to a member function save() on array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php:280
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(60): wpa_convert_images_to_products(10, Array, '32', Array)
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): generate_products_ajax_handler('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_generat...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php на строке 280
+
+2020-04-10T17:41:14+00:00 CRITICAL Uncaught Error: Call to a member function save() on array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php:281
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(60): wpa_convert_images_to_products(10, Array, '32', Array)
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): generate_products_ajax_handler('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_generat...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php на строке 281
+
+2020-04-10T17:42:49+00:00 CRITICAL Uncaught Error: Call to a member function save() on array in /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php:281
+Stack trace:
+#0 /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php(60): wpa_convert_images_to_products(10, Array, '32', Array)
+#1 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(288): generate_products_ajax_handler('')
+#2 /home/a/a99953zd/photo-store/public_html/wp-includes/class-wp-hook.php(312): WP_Hook->apply_filters('', Array)
+#3 /home/a/a99953zd/photo-store/public_html/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /home/a/a99953zd/photo-store/public_html/wp-admin/admin-ajax.php(175): do_action('wp_ajax_generat...')
+#5 {main}
+  thrown в /home/a/a99953zd/photo-store/public_html/wp-content/plugins/woo-products-from-images/woo-products-from-images.php на строке 281
+

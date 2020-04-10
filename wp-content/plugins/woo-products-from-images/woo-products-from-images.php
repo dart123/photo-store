@@ -183,8 +183,26 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
     $images = new WP_Query( $args );
 //
     $errors = array();
+//    if($reference->is_type('variable')) {
+//        foreach ($reference->get_available_variations() as $variation) {
+//            // Variation ID
+//            $variation_id = $variation['variation_id'];
+//            $attributes = array();
+//            foreach ($variation['attributes'] as $attribute) {
+//                array_push($attributes, $attribute);
+//            }
+//        }
+//    }
+//    return print_r($reference->get_available_variations(), true);
+
 //
     // start loop through images
+    $product_attributes = array();
+    //Пробегаемся по переданным вариациям в первый раз, потому что нужно добавить к самому товару нужные значения атрибутов
+    foreach ($variations as $variation)
+    {
+        array_push($product_attributes, $variation['attribute']);
+    }
 
     if ( $images->have_posts() ) :
 
@@ -192,8 +210,6 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
         //set_transient( 'convert_images_to_products_done', 1);
 
         //global $wpdb;
-
-        $result = array();
 
         while( $images->have_posts() ) :
             $images->the_post();
@@ -208,8 +224,33 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
             $product->set_name($title);
             $product->set_image_id($image);
             $product->set_category_ids(array($category));
+            //$product->set_manage_stock(true);
+            $product->set_stock_status('');
+            //$product->set_stock_quantity(1);
 
+            //Create the attribute object
+            $attribute = new WC_Product_Attribute();
+            //pa_size tax id
+            $attribute->set_id( 1 );
+            //pa_size slug
+            $attribute->set_name( 'pa_format' );
+            //Set terms slugs
+
+            $attribute->set_position( 0 );
+            //If enabled
+            $attribute->set_visible( true );
+            //If we are going to use attribute in order to generate variations
+            $attribute->set_variation( true );
+
+            $attribute->set_options( $product_attributes );
+
+            $product->set_attributes(array($attribute));
+
+            $product->save();
+            //return $product->get_id();
             $i = 1;
+            //Пробегаемся по вариациям еще раз для создания вариаций
+        //return $product->get_id();
             foreach ($variations as $variation)
             {
                 $variation_post = array(
@@ -220,6 +261,7 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
                     'post_type'   => 'product_variation',
                     'guid'        => $product->get_permalink()
                 );
+
                 // Creating the product variation
                 $variation_id = wp_insert_post( $variation_post );
                 $i++;
@@ -227,12 +269,25 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
                 // Get an instance of the WC_Product_Variation object
                 $variation_prod = new WC_Product_Variation( $variation_id );
 
-                $variation_prod->set_attributes(array('pa_format' => $variation['attribute']));
-                $variation_prod->set_price($variation['price']);
+                $variation_prod->set_attributes(array('attribute_pa_format' => $variation['attribute']));
+                //return print_r($variation_prod->get_variation_attributes(), true);
+                //$variation_prod->set_attribute_summary('pa_format:'.$variation['attribute']);
+                //$variation_prod->set_variation_attributes(array('pa_format' => $variation['attribute']));
+                //$variation_prod->set_attributes(array('id' => 1, 'option' => $variation['attribute']));
+//                $variation_prod->set_attributes(array('format' => $variation['attribute']));
+//                $variation_prod->set_attributes(array($variation['attribute']));
+
+                $variation_prod->set_regular_price($variation['price']);
                 $variation_prod->set_image_id($image);
+
+                //$variation_prod->set_manage_stock(true);
+                $variation_prod->set_stock_status('instock');
+
+                //file_put_contents('log.txt', print_r(	$variation_prod->get_attributes(),true ));
+
+                $variation_prod->save();
             }
 
-            $product->save();
 //
 //            $product_vars['post_title'] = get_the_title();
 //            $product_vars['post_excerpt'] = $excerpt;
