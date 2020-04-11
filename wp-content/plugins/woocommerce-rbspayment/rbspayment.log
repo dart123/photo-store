@@ -178,3 +178,37 @@ Request: https://3dsec.sberbank.ru/payment/rest/register.do: Array
 )
 Response: {"errorCode":"5","errorMessage":"Доступ запрещён"}
 
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Date: 2020-04-11 15:23:44
+Wordpress version 5.3.2; Woocommerce version: 4.0.0
+Request: https://3dsec.sberbank.ru/payment/rest/register.do: Array
+(
+    [userName] => 
+    [password] => 
+    [amount] => 20000
+    [language] => ru
+    [returnUrl] => http://photo-store.a99953zd.beget.tech?wc-api=WC_RBSPAYMENT&rbspayment=result&order_id=745&wc-callb=callback_function
+    [jsonParams] => {"CMS:":"Wordpress 5.3.2 + woocommerce version: 4.0.0","Module-Version: ":"3.2.2"}
+    [orderNumber] => 745_1
+)
+Response: {"errorCode":"5","errorMessage":"Доступ запрещён"}
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Date: 2020-04-11 15:41:32
+Wordpress version 5.3.2; Woocommerce version: 4.0.0
+Request: https://3dsec.sberbank.ru/payment/rest/register.do: Array
+(
+    [userName] => 
+    [password] => 
+    [amount] => 20000
+    [language] => ru
+    [returnUrl] => http://photo-store.a99953zd.beget.tech?wc-api=WC_RBSPAYMENT&rbspayment=result&order_id=801&wc-callb=callback_function
+    [jsonParams] => {"CMS:":"Wordpress 5.3.2 + woocommerce version: 4.0.0","Module-Version: ":"3.2.2"}
+    [orderNumber] => 801_1
+)
+Response: {"errorCode":"5","errorMessage":"Доступ запрещён"}
+
