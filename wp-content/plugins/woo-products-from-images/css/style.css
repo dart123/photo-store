@@ -19,17 +19,22 @@
 }
 #upload_image_button {
     width: 30% !important;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    align-self: center;
 }
 form#product_generation_form .product_cat_item, .product_variation_item {
     display: flex;
     flex-direction: column;
     width: 30%;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
 }
 .prod_generation_main .image_gallery, .product_categories, .product_variations {
     background: white;
     margin-bottom: 20px;
     padding-bottom: 50px;
+    padding-top: 20px;
 }
 .generate_products_submit {
     background: white;
@@ -44,12 +49,33 @@ input#generate_products_button {
     height: 40%;
 }
 .image_gallery {
-    padding-top: 50px;
+    padding-top: 70px !important;
+    display: flex;
+    flex-direction: column;
 }
 .header {
-    text-align: left;
+    text-align: center;
+}
+.prod_generation_main .image_gallery > .header {
+    margin-top: -50px;
 }
 #add_variation_btn {
     float: left;
     margin-left: 50px;
+}
+form#product_generation_form label {
+    margin-bottom: 10px;
+}
+.variation_header h3 {
+    width: 70%;
+    float: left
+}
+.variation_header a.settings_close {
+    display: inline-block;
+    margin-left: 50px;
+    margin-top: 15px;
+    visibility: hidden;
+    font-size: 30px;
+    cursor: pointer;
+    /*color: red;*/
 }

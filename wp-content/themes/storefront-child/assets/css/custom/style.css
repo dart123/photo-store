@@ -266,7 +266,7 @@ ul.products .number-select {
   position: relative;
   cursor: pointer;
 }
-.custom-select__select > select, table.variations select#pa_format {
+.custom-select__select > select, table.variations select#pa_format, table.variations select#format {
   width: 100%;
   height: 40px;
   outline: none;

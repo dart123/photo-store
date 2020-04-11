@@ -29,11 +29,14 @@
                 <h2 class="header">Вариации товаров</h2>
                 <div class="product_variation_wrapper">
                     <div class="product_variation_item">
-                        <h3>Вариация 1</h3>
-                        <label for="product_variation_price_1">Цена вариации 1</label>
-                        <input id="product_variation_price_1" required type="text" name="product_variation[0][price]">
-                        <label for="product_variation_attribute_1">Атрибут вариации 1</label>
-                        <select id="product_variation_attribute_1" required name="product_variation[0][attribute]">
+                        <div class="variation_header">
+                            <h3>Вариация 1</h3>
+                            <a class="settings_close">×</a>
+                        </div>
+                        <label for="product_variation_price_0">Цена вариации 1</label>
+                        <input id="product_variation_price_0" required type="text" name="product_variation[0][price]">
+                        <label for="product_variation_attribute_0">Атрибут вариации 1</label>
+                        <select id="product_variation_attribute_0" required name="product_variation[0][attribute]">
                             <?php foreach ($attributes as $attribute): ?>
                                 <option value="<?=$attribute->slug ?>"><?=$attribute->name?></option>
                             <?php endforeach; ?>

@@ -112,6 +112,27 @@
     //Adding variations
      jQuery('#add_variation_btn').click(function() {
          generation_add_variation();
+         jQuery(".product_variation_wrapper .product_variation_item:last-child").mouseover(function() {
+             jQuery(this).find(".settings_close").css('visibility', 'visible');
+         });
+         jQuery(".product_variation_wrapper .product_variation_item:last-child").mouseout(function() {
+             jQuery(this).find(".settings_close").css('visibility', 'hidden');
+         });
+
+         jQuery('.product_variation_wrapper .product_variation_item a.settings_close').click(function(){
+             generation_remove_variation(jQuery(this));
+         });
+     });
+
+     jQuery(".product_variation_wrapper .product_variation_item:last-child").mouseover(function() {
+         jQuery(this).find(".settings_close").css('visibility', 'visible');
+     });
+     jQuery(".product_variation_wrapper .product_variation_item:last-child").mouseout(function() {
+         jQuery(this).find(".settings_close").css('visibility', 'hidden');
+     });
+
+     jQuery('.product_variation_wrapper .product_variation_item a.settings_close').click(function(){
+         generation_remove_variation(jQuery(this));
      });
 
 });
@@ -128,11 +149,14 @@ function generation_add_variation()
     });
     variation_wrapper.append(
         '<div class="product_variation_item">\n' +
-            '<h3>Вариация ' + cur_index + '</h3>\n' +
-            '<label for="product_variation_price_' + cur_index + '">Цена вариации ' + cur_index + '</label>\n' +
-            '<input id="product_variation_price_' + cur_index + '" required type="text" name="product_variation[' + variation_amount + '][price]">\n' +
-            '<label for="product_variation_attribute_' + cur_index + '">Атрибут вариации ' + cur_index + '</label>\n' +
-            '<select id="product_variation_attribute_' + cur_index + '" required name="product_variation[' + variation_amount + '][attribute]">\n' +
+            '<div class="variation_header">' +
+                '<h3>Вариация ' + cur_index + '</h3>\n' +
+                '<a class="settings_close">×</a>' +
+            '</div>' +
+            '<label for="product_variation_price_' + variation_amount + '">Цена вариации ' + cur_index + '</label>\n' +
+            '<input id="product_variation_price_' + variation_amount + '" required type="text" name="product_variation[' + variation_amount + '][price]">\n' +
+            '<label for="product_variation_attribute_' + variation_amount + '">Атрибут вариации ' + cur_index + '</label>\n' +
+            '<select id="product_variation_attribute_' + variation_amount + '" required name="product_variation[' + variation_amount + '][attribute]">\n' +
             '</select>\n' +
         '</div>');
 
@@ -141,6 +165,62 @@ function generation_add_variation()
     jQuery.each(attributes, function(index, attribute) {
         new_variation_select.append('<option value="' + attribute.slug + '">' + attribute.name + '</option>');
     });
+}
+function generation_remove_variation(element)
+{
+    var item_el = element.parents(".product_variation_item");
+    var nextSiblings = item_el.nextAll();
 
-    //console.log(attributes);
+    if (nextSiblings.length > 0)
+    {
+        //при удалении вариации смещаем все индексы на 1 влево
+        jQuery.each(nextSiblings, function(){
+            var item = jQuery(this);
+            let input = item.find('input[type="text"]');
+            let select = item.find('select');
+
+            //Меняем id у select
+            let split_id = select.attr('id').split("_");
+            let cur_index = split_id[split_id.length - 1];
+            console.log("cur_index: " + cur_index);
+
+            split_id[split_id.length - 1] = cur_index - 1;
+            let new_id = split_id.join('_');
+
+            select.attr('id', new_id);
+            select.prev('label').attr('for', new_id)
+
+            //Меняем name у select
+            var select_name = select.attr('name');
+            var arr = select_name.split('');
+            var removed = arr.splice(
+                select_name.indexOf('[') + 1,
+                select_name.indexOf(']') - select_name.indexOf('[') - 1,
+                cur_index - 1); // arr is modified
+            select_name = arr.join('');
+
+            select.attr('name', select_name);
+
+            //Меняем id у input
+            split_id = input.attr('id').split("_");
+            split_id[split_id.length - 1] = cur_index - 1;
+            new_id = split_id.join('_');
+
+            input.attr('id', new_id);
+            input.prev('label').attr('for', new_id);
+
+            //Меняем name у input
+            var input_name = input.attr('name');
+            arr = input_name.split('');
+            removed = arr.splice(
+                input_name.indexOf('[') + 1,
+                input_name.indexOf(']') - input_name.indexOf('[') - 1,
+                cur_index - 1); // arr is modified
+            input_name = arr.join('');
+
+            input.attr('name', input_name);
+
+        });
+    }
+    item_el.remove();
 }

@@ -1,7 +1,7 @@
 jQuery(document).ready(function() {
     //console.log(window.location.href);
     if (window.location.href.indexOf('/product/') !== -1 ) {
-        jQuery('table.variations td.value select#pa_format').change(function () {
+        jQuery('table.variations td.value select#pa_format, table.variations td.value select#format').change(function () {
             let selected_option = jQuery(this).find("option:selected");
             if (selected_option.val() === '')
                 return;
@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
             //let current_price = price_el.clone().children().remove().end().text();
             let selected_option = jQuery(this).parents('div.quantity')
                 .siblings('table.variations')
-                .find('td.value select#pa_format')
+                .find('td.value select#pa_format, td.value select#format')
                 .find('option:selected');
             if (selected_option.val() === '')
                 return;
@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
             if (selected_option.length > 0 && typeof selected_option !== 'undefined')
                 var new_price = selected_option.attr('data-price') * jQuery(this).val();
             else
-                var new_price = jQuery('select#pa_format option:nth-child(2)').attr('data-price') * jQuery(this).val();
+                var new_price = jQuery('select#pa_format option:nth-child(2), select#format option:nth-child(2)').attr('data-price') * jQuery(this).val();
             price_el.text(new_price);
             price_el.append("<span class='woocommerce-Price-currencySymbol'>₽</span>");
         });

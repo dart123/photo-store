@@ -79,7 +79,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
             ?>
 
         //Добавляем значения цен для атрибутов в селект
-        jQuery('table.variations td.value select#pa_format option').not(':first-child').each(function () {
+        jQuery('table.variations td.value select#pa_format option, table.variations td.value select#format option').not(':first-child').each(function () {
             let attr = jQuery(this).val();
             let price = jQuery(".attr_prices span[data-attr='" + attr + "']").attr('data-price');
             jQuery(this).attr('data-price', price);
