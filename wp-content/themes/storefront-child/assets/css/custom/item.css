@@ -15,6 +15,9 @@
 .woocommerce-product-gallery > img {
   height: 500px !important;
 }
+.woocommerce-product-gallery__image > a > img {
+  height: 350px !important;
+}
 ul.flex-direction-nav {
   position: absolute;
   top: 30%;
@@ -154,7 +157,10 @@ form.variations_form.cart p.price {
   padding: 0 !important;
   font-family: 'Roboto';
 }
-
+.woocommerce-product-gallery__image > a {
+  position: inherit;
+  z-index: 98;
+}
 @media screen and (max-width: 1080px) {
   .item__photos,
   .item__info {

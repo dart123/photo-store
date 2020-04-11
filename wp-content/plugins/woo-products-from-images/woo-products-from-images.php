@@ -229,7 +229,8 @@ function wpa_convert_images_to_products($ref_id = 0, $image_ids, $category, $var
             //array_push($result, $title);
 
             $product = new WC_Product_Variable();
-            $product->set_name($title);
+            $product_name = "Фотография ".$title;
+            $product->set_name($product_name);
             $product->set_image_id($image);
             $product->set_category_ids(array($category));
             //$product->set_manage_stock(true);

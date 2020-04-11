@@ -403,12 +403,30 @@ function sf_update_woo_flexslider_options( $options ) {
 }
 add_filter( 'woocommerce_single_product_carousel_options', 'sf_update_woo_flexslider_options' );
 
-//function remove_slider_theme_support() {
+function remove_slider_theme_support()
+{
 //    remove_theme_support( 'wc-product-gallery-zoom' );
 //    remove_theme_support( 'wc-product-gallery-lightbox' );
-//    remove_theme_support( 'wc-product-gallery-slider' );
-//}
-//add_action( 'wp', 'remove_slider_theme_support', 99 );
+    remove_theme_support( 'wc-product-gallery-slider' );
+}
+add_action( 'wp', 'remove_slider_theme_support', 99 );
+
+
+//Изменить размер изображений в галерее
+//add_filter( 'woocommerce_get_image_size_gallery_image', function( $size ) {
+//    return array(
+//        'width' => 1000,
+//        'height' => 1000,
+//        'crop' => 1,
+//    );
+//} );
+//add_filter( 'woocommerce_gallery_thumbnail_size', function( $size ) {
+//    return 'full';
+//} );
+add_filter( 'woocommerce_gallery_image_size', function( $size ) {
+    return 'full';
+} );
+
 
 /**
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
