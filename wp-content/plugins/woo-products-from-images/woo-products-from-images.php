@@ -33,6 +33,10 @@ function plugin_scripts($hook)
     if( 'woocommerce_page_woo_products_from_images' != $hook ) //Подключаем скрипты только на странице плагина
         return;
     wp_enqueue_style('woo-products-from-img-style', plugins_url('css/style.css', __FILE__), '', '1.0.0', 'screen');
+    wp_enqueue_style('woo-products-from-img-loader', plugins_url('css/loader.css', __FILE__), '', '1.0.0', 'screen');
+    wp_enqueue_style('woo-products-from-img-modal', plugins_url('css/bootstrap.css', __FILE__), '', '1.0.0', 'screen');
+
+    wp_enqueue_script( 'woo-products-from-img-bootstrap-script', plugins_url('js/bootstrap.min.js', __FILE__), array('jquery'), '1.0.0' );
     wp_enqueue_script( 'woo-products-from-img-script', plugins_url('js/script.js', __FILE__), array('jquery'), '1.0.0' );
 
     $generate_products_nonce = wp_create_nonce( 'generate_products_example' );

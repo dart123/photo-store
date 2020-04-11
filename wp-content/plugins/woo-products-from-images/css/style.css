@@ -1,3 +1,7 @@
+body {
+    background-color: #f1f1f1 !important;
+    line-height: 1;
+}
 .prod_generation_main {
     text-align: center;
 }
@@ -30,6 +34,9 @@ form#product_generation_form .product_cat_item, .product_variation_item {
     margin-right: 15px;
     margin-bottom: 15px;
 }
+.product_variation_item input[type="text"] {
+    max-width: 25rem;
+}
 .prod_generation_main .image_gallery, .product_categories, .product_variations {
     background: white;
     margin-bottom: 20px;
@@ -55,6 +62,7 @@ input#generate_products_button {
 }
 .header {
     text-align: center;
+    margin: 0;
 }
 .prod_generation_main .image_gallery > .header {
     margin-top: -50px;
@@ -67,15 +75,47 @@ form#product_generation_form label {
     margin-bottom: 10px;
 }
 .variation_header h3 {
-    width: 70%;
-    float: left
+    width: 40%;
+    float: left;
+    margin-left: 25%;
 }
 .variation_header a.settings_close {
     display: inline-block;
-    margin-left: 50px;
+    margin: 0;
     margin-top: 15px;
     visibility: hidden;
     font-size: 30px;
     cursor: pointer;
+    margin-right: -15%;
     /*color: red;*/
+}
+button.close {
+    width: 5%;
+    align-self: flex-end;
+}
+.modal {
+    top: 30% !important;
+    left: 10% !important;
+}
+.loader {
+    display: none;
+    text-align: center;
+    margin-top: 50px;
+}
+.lds-roller {
+    scale: 1.5;
+}
+.modal-dialog {
+    height: 300px;
+}
+.modal-content {
+    height: 100%;
+}
+.success_message, .failure_message {
+    display: none;
+    align-self: center;
+    margin-top: 10%;
+}
+.success_message span, .failure_message span {
+    color: green;
 }

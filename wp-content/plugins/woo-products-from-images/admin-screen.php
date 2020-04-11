@@ -52,5 +52,38 @@
             </div>
         </form>
 
+        <a style="display: none;" id="modal-54506521" href="#modal-container-54506521" role="button" class="" data-toggle="modal">
+        </a>
+        <!--Модальное окно генерации контента -->
+        <div class="modal fade" id="modal-container-54506521" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document" style="max-width: 700px; ">
+                <div class="modal-content text-left" style="padding: 20px;">
+                    <button type="button" class="close ib " data-dismiss="modal">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="loader">
+                        <div class="lds-roller">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <div class="success_message">
+                        <span>Создание товаров завершено!</span>
+                    </div>
+                    <div class="failure_message">
+                        <span>Произошла ошибка!</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

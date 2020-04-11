@@ -77,16 +77,10 @@
         });
         //}
         var formValues = form.serialize();
-        //console.log(formValues);
 
-        // let product_variations = [];
-        //
-        // jQuery('.product_variation_item').each(function(index, el) {
-        //     let price = jQuery(this).find('input[type="text"]').val();
-        //     let attribute = jQuery(this).find('select').val();
-        //     product_variations.push({price: price, attribute: attribute});
-        // });
-
+        //Открываем модальное окно
+        jQuery('#modal-54506521').trigger('click');
+        jQuery('.loader').css('display', 'block');
         jQuery.post(
             //location.protocol+"//"+location.hostname+"/wp-content/plugins/woo-products-from-images/woo-products-from-images.php",
             my_ajax_obj.ajax_url,
@@ -99,7 +93,18 @@
 
             function(response)
             {
-                console.log(response);
+                if (response === 'true')
+                {
+                    jQuery('.loader').css('display', 'none');
+                    jQuery('.success_message').css('display', 'block');
+                }
+                else
+                    if (response === 'false')
+                    {
+                        jQuery('.loader').css('display', 'none');
+                        jQuery('.failure_message').css('display', 'block');
+                    }
+                //console.log(response);
                 //console.log(JSON.parse(response));
             }
         );
