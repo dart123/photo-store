@@ -1242,6 +1242,14 @@ wp-logo-jpg					+		+
 				$width = (int) ( $image_height * $width / $height );
 				$height = $image_height;
 			}
+			elseif ($height < $image_height)
+            {
+                $height = $image_height;
+            }
+			
+			if ( $width < $image_width ) {
+			    $width = $image_width;
+            }
 			// original
 		} else {
 			$width = $watermark_width;

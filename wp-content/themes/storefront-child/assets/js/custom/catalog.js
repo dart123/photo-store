@@ -24,7 +24,8 @@ function get_product_price(el)
 jQuery(document).ready(function(){
     // if ( /^((?!chrome|android).)*safari/i.test(navigator.userAgent))
     // {
-    //     jQuery('ul.products li.product.last').css('margin-right', '60px !important');
+    //     let margin_val = jQuery('ul.products li.product').css('margin-right', '0 !important').css('margin-block-end', '0');
+    //jQuery('ul.products li.product.last').css('margin-block-end', margin_val + ' !important').css('writing-mode', 'horizontal-tb').css('margin-right: ', margin_val + ' !important');
     // }
 
     //Открытие и закрытие мобильного меню
